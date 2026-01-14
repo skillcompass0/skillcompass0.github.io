@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillCompass - Navigate Your Tech Career</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+                    <circle cx="20" cy="20" r="18" stroke="url(#logoGradient)" stroke-width="3"/>
+                    <path d="M20 8L20 32M12 20L28 20" stroke="url(#logoGradient)" stroke-width="3" stroke-linecap="round"/>
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0" y1="0" x2="40" y2="40">
+                            <stop offset="0%" stop-color="#6366f1"/>
+                            <stop offset="100%" stop-color="#a855f7"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span>SkillCompass</span>
+            </a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#free-sessions">Free Sessions</a>
+                <a href="#mentors">Mentors</a>
+                <a href="#testimonials">Success Stories</a>
+                <a href="#contact" class="nav-cta">Get Started</a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="pulse"></span>
+                🚀 Launching Tech Careers Since 2024
+            </div>
+            <h1 class="hero-title">
+                Navigate Your
+                <span class="gradient-text">Tech Career</span>
+                With Expert Guidance
+            </h1>
+            <p class="hero-subtitle">
+                Free community Q&A sessions and premium 1:1 mentorship for graduating engineers 
+                ready to break into the IT industry. Your compass to success starts here.
+            </p>
+            <div class="hero-buttons">
+                <a href="#free-sessions" class="btn btn-primary">
+                    <span>Join Free Sessions</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="#mentors" class="btn btn-secondary">
+                    <span>Find a Mentor</span>
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number" data-count="500">0</span>+
+                    <span class="stat-label">Engineers Guided</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" data-count="50">0</span>+
+                    <span class="stat-label">Free Sessions</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" data-count="95">0</span>%
+                    <span class="stat-label">Success Rate</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="floating-card card-1">
+                <div class="card-icon">💻</div>
+                <span>Frontend Dev</span>
+            </div>
+            <div class="floating-card card-2">
+                <div class="card-icon">⚙️</div>
+                <span>Backend</span>
+            </div>
+            <div class="floating-card card-3">
+                <div class="card-icon">☁️</div>
+                <span>Cloud</span>
+            </div>
+            <div class="floating-card card-4">
+                <div class="card-icon">🤖</div>
+                <span>AI/ML</span>
+            </div>
+            <div class="compass-illustration">
+                <svg viewBox="0 0 200 200" class="compass-svg">
+                    <circle cx="100" cy="100" r="90" fill="none" stroke="url(#compassGradient)" stroke-width="2" opacity="0.3"/>
+                    <circle cx="100" cy="100" r="70" fill="none" stroke="url(#compassGradient)" stroke-width="2" opacity="0.5"/>
+                    <circle cx="100" cy="100" r="50" fill="none" stroke="url(#compassGradient)" stroke-width="3"/>
+                    <path class="compass-needle" d="M100 30 L105 100 L100 110 L95 100 Z" fill="url(#needleGradient)"/>
+                    <circle cx="100" cy="100" r="8" fill="#6366f1"/>
+                    <defs>
+                        <linearGradient id="compassGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#6366f1"/>
+                            <stop offset="100%" stop-color="#a855f7"/>
+                        </linearGradient>
+                        <linearGradient id="needleGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="#f43f5e"/>
+                            <stop offset="100%" stop-color="#6366f1"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Why SkillCompass?</span>
+                <h2>Your Bridge from <span class="gradient-text">Campus to Career</span></h2>
+                <p>We understand the challenges fresh graduates face. That's why we've created a supportive ecosystem to help you succeed.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 48 48" fill="none">
+                            <rect width="48" height="48" rx="12" fill="url(#feat1)"/>
+                            <path d="M24 14v20M14 24h20" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                            <defs><linearGradient id="feat1" x1="0" y1="0" x2="48" y2="48"><stop stop-color="#6366f1"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs>
+                        </svg>
+                    </div>
+                    <h3>Industry Experts</h3>
+                    <p>Learn from professionals working at top tech companies who've walked the path you're about to take.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 48 48" fill="none">
+                            <rect width="48" height="48" rx="12" fill="url(#feat2)"/>
+                            <circle cx="24" cy="24" r="10" stroke="white" stroke-width="3"/>
+                            <path d="M24 18v6l4 4" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                            <defs><linearGradient id="feat2" x1="0" y1="0" x2="48" y2="48"><stop stop-color="#a855f7"/><stop offset="1" stop-color="#ec4899"/></linearGradient></defs>
+                        </svg>
+                    </div>
+                    <h3>Flexible Learning</h3>
+                    <p>Choose between free community sessions or personalized 1:1 mentorship based on your needs.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 48 48" fill="none">
+                            <rect width="48" height="48" rx="12" fill="url(#feat3)"/>
+                            <path d="M16 32l6-8 5 5 7-11" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <defs><linearGradient id="feat3" x1="0" y1="0" x2="48" y2="48"><stop stop-color="#f43f5e"/><stop offset="1" stop-color="#fb7185"/></linearGradient></defs>
+                        </svg>
+                    </div>
+                    <h3>Real Results</h3>
+                    <p>Our mentees have landed roles at FAANG companies, startups, and everything in between.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 48 48" fill="none">
+                            <rect width="48" height="48" rx="12" fill="url(#feat4)"/>
+                            <path d="M24 16c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8z" stroke="white" stroke-width="3"/>
+                            <path d="M24 12v4M24 32v4M36 24h-4M16 24h-4" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                            <defs><linearGradient id="feat4" x1="0" y1="0" x2="48" y2="48"><stop stop-color="#06b6d4"/><stop offset="1" stop-color="#22d3ee"/></linearGradient></defs>
+                        </svg>
+                    </div>
+                    <h3>Mock Interviews</h3>
+                    <p>Practice with real interview scenarios and get actionable feedback to ace your next opportunity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Free Sessions Section -->
+    <section id="free-sessions" class="sessions-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">100% Free</span>
+                <h2>Tech Mentorship <span class="gradient-text">Connects</span></h2>
+                <p>Join our periodic online Q&A sessions where industry experts answer your burning questions about breaking into tech.</p>
+            </div>
+            <div class="sessions-content">
+                <div class="session-info">
+                    <div class="info-card">
+                        <div class="info-icon">📅</div>
+                        <div class="info-text">
+                            <h4>Regular Sessions</h4>
+                            <p>Bi-weekly online meetups every Saturday</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">🎯</div>
+                        <div class="info-text">
+                            <h4>Q&A Format</h4>
+                            <p>Ask anything about tech careers, interviews, or skills</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">👥</div>
+                        <div class="info-text">
+                            <h4>Community Driven</h4>
+                            <p>Connect with fellow graduating engineers</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">🎓</div>
+                        <div class="info-text">
+                            <h4>Expert Panels</h4>
+                            <p>Different industry experts each session</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="session-cta">
+                    <div class="next-session">
+                        <span class="next-label">Next Session</span>
+                        <div class="countdown" id="countdown">
+                            <div class="countdown-item">
+                                <span class="countdown-value" id="days">00</span>
+                                <span class="countdown-label">Days</span>
+                            </div>
+                            <div class="countdown-item">
+                                <span class="countdown-value" id="hours">00</span>
+                                <span class="countdown-label">Hours</span>
+                            </div>
+                            <div class="countdown-item">
+                                <span class="countdown-value" id="minutes">00</span>
+                                <span class="countdown-label">Mins</span>
+                            </div>
+                            <div class="countdown-item">
+                                <span class="countdown-value" id="seconds">00</span>
+                                <span class="countdown-label">Secs</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary btn-large">
+                            <span>Register for Free</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="topics-covered">
+                <h3>Topics We Cover</h3>
+                <div class="topics-grid">
+                    <span class="topic-tag">Resume Building</span>
+                    <span class="topic-tag">DSA Preparation</span>
+                    <span class="topic-tag">System Design</span>
+                    <span class="topic-tag">Career Roadmaps</span>
+                    <span class="topic-tag">Interview Tips</span>
+                    <span class="topic-tag">Salary Negotiation</span>
+                    <span class="topic-tag">Portfolio Projects</span>
+                    <span class="topic-tag">Networking</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mentors Section -->
+    <section id="mentors" class="mentors-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Premium 1:1 Coaching</span>
+                <h2>Meet Our <span class="gradient-text">Expert Mentors</span></h2>
+                <p>Get personalized guidance from industry professionals who offer dedicated coaching, mock interviews, and career strategy sessions.</p>
+            </div>
+            <div class="mentors-grid">
+                <div class="mentor-card">
+                    <div class="mentor-image">
+                        <div class="mentor-avatar" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">
+                            <span>AS</span>
+                        </div>
+                        <div class="mentor-badge">⭐ Top Mentor</div>
+                    </div>
+                    <div class="mentor-info">
+                        <h3>Arjun Sharma</h3>
+                        <p class="mentor-role">Senior Software Engineer @ Google</p>
+                        <p class="mentor-exp">8+ years experience</p>
+                        <div class="mentor-tags">
+                            <span>System Design</span>
+                            <span>DSA</span>
+                            <span>Backend</span>
+                        </div>
+                        <div class="mentor-stats">
+                            <div class="mentor-stat">
+                                <span class="stat-val">50+</span>
+                                <span class="stat-lbl">Sessions</span>
+                            </div>
+                            <div class="mentor-stat">
+                                <span class="stat-val">4.9</span>
+                                <span class="stat-lbl">Rating</span>
+                            </div>
+                        </div>
+                        <a href="#contact" class="btn btn-mentor">Book Session</a>
+                    </div>
+                </div>
+
+                <div class="mentor-card">
+                    <div class="mentor-image">
+                        <div class="mentor-avatar" style="background: linear-gradient(135deg, #a855f7, #ec4899);">
+                            <span>PK</span>
+                        </div>
+                    </div>
+                    <div class="mentor-info">
+                        <h3>Priya Kapoor</h3>
+                        <p class="mentor-role">Tech Lead @ Microsoft</p>
+                        <p class="mentor-exp">10+ years experience</p>
+                        <div class="mentor-tags">
+                            <span>Frontend</span>
+                            <span>React</span>
+                            <span>Career Growth</span>
+                        </div>
+                        <div class="mentor-stats">
+                            <div class="mentor-stat">
+                                <span class="stat-val">75+</span>
+                                <span class="stat-lbl">Sessions</span>
+                            </div>
+                            <div class="mentor-stat">
+                                <span class="stat-val">5.0</span>
+                                <span class="stat-lbl">Rating</span>
+                            </div>
+                        </div>
+                        <a href="#contact" class="btn btn-mentor">Book Session</a>
+                    </div>
+                </div>
+
+                <div class="mentor-card">
+                    <div class="mentor-image">
+                        <div class="mentor-avatar" style="background: linear-gradient(135deg, #f43f5e, #fb7185);">
+                            <span>RV</span>
+                        </div>
+                    </div>
+                    <div class="mentor-info">
+                        <h3>Rahul Verma</h3>
+                        <p class="mentor-role">ML Engineer @ Amazon</p>
+                        <p class="mentor-exp">6+ years experience</p>
+                        <div class="mentor-tags">
+                            <span>AI/ML</span>
+                            <span>Python</span>
+                            <span>Data Science</span>
+                        </div>
+                        <div class="mentor-stats">
+                            <div class="mentor-stat">
+                                <span class="stat-val">40+</span>
+                                <span class="stat-lbl">Sessions</span>
+                            </div>
+                            <div class="mentor-stat">
+                                <span class="stat-val">4.8</span>
+                                <span class="stat-lbl">Rating</span>
+                            </div>
+                        </div>
+                        <a href="#contact" class="btn btn-mentor">Book Session</a>
+                    </div>
+                </div>
+
+                <div class="mentor-card">
+                    <div class="mentor-image">
+                        <div class="mentor-avatar" style="background: linear-gradient(135deg, #06b6d4, #22d3ee);">
+                            <span>ND</span>
+                        </div>
+                    </div>
+                    <div class="mentor-info">
+                        <h3>Neha Desai</h3>
+                        <p class="mentor-role">Cloud Architect @ AWS</p>
+                        <p class="mentor-exp">7+ years experience</p>
+                        <div class="mentor-tags">
+                            <span>Cloud</span>
+                            <span>DevOps</span>
+                            <span>Architecture</span>
+                        </div>
+                        <div class="mentor-stats">
+                            <div class="mentor-stat">
+                                <span class="stat-val">60+</span>
+                                <span class="stat-lbl">Sessions</span>
+                            </div>
+                            <div class="mentor-stat">
+                                <span class="stat-val">4.9</span>
+                                <span class="stat-lbl">Rating</span>
+                            </div>
+                        </div>
+                        <a href="#contact" class="btn btn-mentor">Book Session</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="services-offered">
+                <h3>What's Included in 1:1 Mentorship</h3>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <div class="service-icon">🎯</div>
+                        <h4>Mock Interviews</h4>
+                        <p>Practice with real interview scenarios tailored to your target companies</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">📋</div>
+                        <h4>Resume Review</h4>
+                        <p>Get your resume polished by someone who reviews candidates daily</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">🗺️</div>
+                        <h4>Career Roadmap</h4>
+                        <p>Personalized learning path based on your goals and timeline</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">💬</div>
+                        <h4>Ongoing Support</h4>
+                        <p>Chat access for quick questions between sessions</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Success Stories</span>
+                <h2>Hear from Our <span class="gradient-text">Community</span></h2>
+                <p>Real stories from engineers who transformed their careers with SkillCompass.</p>
+            </div>
+            <div class="testimonials-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">"</div>
+                        <p>The free Q&A sessions gave me clarity on what to focus on. Then I booked 1:1 sessions with Arjun, and his mock interviews were game-changers. I landed my dream job at a unicorn startup!</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background: linear-gradient(135deg, #6366f1, #a855f7);">VK</div>
+                        <div class="author-info">
+                            <h4>Vikram Kumar</h4>
+                            <p>Software Engineer @ Razorpay</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">"</div>
+                        <p>As a fresher with no connections in tech, SkillCompass became my support system. Priya's mentorship helped me transition from a non-CS background to a frontend role at Microsoft!</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background: linear-gradient(135deg, #a855f7, #ec4899);">SM</div>
+                        <div class="author-info">
+                            <h4>Sneha Malhotra</h4>
+                            <p>Frontend Developer @ Microsoft</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">"</div>
+                        <p>The community here is incredibly supportive. I attended 10+ free sessions before I felt confident to apply. The structured approach to interview prep made all the difference.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background: linear-gradient(135deg, #f43f5e, #fb7185);">AG</div>
+                        <div class="author-info">
+                            <h4>Aditya Gupta</h4>
+                            <p>Backend Engineer @ Flipkart</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to <span class="gradient-text">Launch Your Tech Career?</span></h2>
+                <p>Join hundreds of engineers who've found their direction with SkillCompass. Start with our free sessions or dive straight into personalized mentorship.</p>
+                <div class="cta-buttons">
+                    <a href="#free-sessions" class="btn btn-primary btn-large">
+                        <span>Join Free Session</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <a href="#mentors" class="btn btn-secondary btn-large">
+                        <span>Explore Mentors</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Get in Touch</span>
+                <h2>Start Your <span class="gradient-text">Journey Today</span></h2>
+                <p>Have questions? Want to become a mentor? We'd love to hear from you.</p>
+            </div>
+            <div class="contact-content">
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="interest">I'm interested in</label>
+                        <select id="interest" name="interest" required>
+                            <option value="">Select an option</option>
+                            <option value="free-sessions">Free Q&A Sessions</option>
+                            <option value="mentorship">1:1 Mentorship</option>
+                            <option value="become-mentor">Becoming a Mentor</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Tell us about your goals..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-large">
+                        <span>Send Message</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                        </svg>
+                    </button>
+                </form>
+                <div class="contact-info">
+                    <div class="info-item">
+                        <div class="info-icon">📧</div>
+                        <div>
+                            <h4>Email Us</h4>
+                            <p>hello@skillcompass.io</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">💬</div>
+                        <div>
+                            <h4>Join Our Discord</h4>
+                            <p>Connect with the community</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">🐦</div>
+                        <div>
+                            <h4>Follow Us</h4>
+                            <p>@SkillCompassHQ</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Discord">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+                            <circle cx="20" cy="20" r="18" stroke="url(#logoGradient2)" stroke-width="3"/>
+                            <path d="M20 8L20 32M12 20L28 20" stroke="url(#logoGradient2)" stroke-width="3" stroke-linecap="round"/>
+                            <defs>
+                                <linearGradient id="logoGradient2" x1="0" y1="0" x2="40" y2="40">
+                                    <stop offset="0%" stop-color="#6366f1"/>
+                                    <stop offset="100%" stop-color="#a855f7"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <span>SkillCompass</span>
+                    </a>
+                    <p>Empowering the next generation of tech professionals through community and mentorship.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Quick Links</h4>
+                        <a href="#about">About Us</a>
+                        <a href="#free-sessions">Free Sessions</a>
+                        <a href="#mentors">Find a Mentor</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <a href="#">Blog</a>
+                        <a href="#">Career Guides</a>
+                        <a href="#">Interview Prep</a>
+                        <a href="#">FAQ</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Refund Policy</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SkillCompass. All rights reserved. Made with ❤️ for aspiring engineers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
