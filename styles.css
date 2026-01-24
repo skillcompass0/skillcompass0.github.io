@@ -593,6 +593,18 @@ section {
     letter-spacing: 1px;
 }
 
+.luma-embed-wrapper {
+    margin-top: 24px;
+    width: 100%;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.luma-embed-wrapper iframe {
+    max-width: 100%;
+}
+
 .topics-covered {
     text-align: center;
 }
