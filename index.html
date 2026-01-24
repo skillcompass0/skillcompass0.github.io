@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body id="top">
     <!-- Animated Background -->
     <div class="bg-animation">
         <div class="gradient-orb orb-1"></div>
@@ -20,7 +20,7 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">
+            <a href="#top" class="logo">
                 <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
                     <circle cx="20" cy="20" r="18" stroke="url(#logoGradient)" stroke-width="3"/>
                     <path d="M20 8L20 32M12 20L28 20" stroke="url(#logoGradient)" stroke-width="3" stroke-linecap="round"/>
@@ -37,7 +37,6 @@
                 <a href="#about">About</a>
                 <a href="#free-sessions">Free Sessions</a>
                 <a href="#mentors">Mentors</a>
-                <a href="#testimonials">Success Stories</a>
                 <a href="#contact" class="nav-cta">Get Started</a>
             </div>
             <button class="mobile-menu-btn" aria-label="Toggle menu">
@@ -277,125 +276,79 @@
     <section id="mentors" class="mentors-section">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Premium 1:1 Coaching</span>
+                <span class="section-tag">Our Team</span>
                 <h2>Meet Our <span class="gradient-text">Expert Mentors</span></h2>
-                <p>Get personalized guidance from industry professionals who offer dedicated coaching, mock interviews, and career strategy sessions.</p>
+                <p>Learn from industry professionals with decades of combined experience in tech.</p>
             </div>
-            <div class="mentors-grid">
-                <div class="mentor-card">
-                    <div class="mentor-image">
-                        <div class="mentor-avatar" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">
-                            <span>AS</span>
+            <div class="mentor-carousel-wrapper">
+                <button class="carousel-btn carousel-prev" aria-label="Previous mentor">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </button>
+                <div class="mentor-carousel">
+                    <div class="mentor-carousel-track">
+                        <div class="mentor-slide">
+                            <div class="mentor-avatar" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">
+                                <span>SE</span>
+                            </div>
+                            <h3>Senior Software Engineer</h3>
+                            <p class="mentor-company">Microsoft</p>
+                            <p class="mentor-exp">17+ years experience</p>
+                            <div class="mentor-tags">
+                                <span>System Design</span>
+                                <span>DSA</span>
+                                <span>Backend</span>
+                            </div>
                         </div>
-                        <div class="mentor-badge">⭐ Top Mentor</div>
-                    </div>
-                    <div class="mentor-info">
-                        <h3>Varun Tayur</h3>
-                        <p class="mentor-role">Senior Software Engineer @ Microsoft</p>
-                        <p class="mentor-exp">17+ years experience</p>
-                        <div class="mentor-tags">
-                            <span>System Design</span>
-                            <span>DSA</span>
-                            <span>Backend</span>
+
+                        <div class="mentor-slide">
+                            <div class="mentor-avatar" style="background: linear-gradient(135deg, #a855f7, #ec4899);">
+                                <span>ED</span>
+                            </div>
+                            <h3>Engineering Director</h3>
+                            <p class="mentor-company">Fortune 500 Tech Company</p>
+                            <p class="mentor-exp">17+ years experience</p>
+                            <div class="mentor-tags">
+                                <span>Career Growth</span>
+                                <span>Leadership</span>
+                            </div>
                         </div>
-                        <div class="mentor-stats">
-                            <!-- <div class="mentor-stat">
-                                <span class="stat-val">50+</span>
-                                <span class="stat-lbl">Sessions</span>
-                            </div> -->
-                            <!-- <div class="mentor-stat">
-                                <span class="stat-val">4.9</span>
-                                <span class="stat-lbl">Rating</span>
-                            </div> -->
+
+                        <div class="mentor-slide">
+                            <div class="mentor-avatar" style="background: linear-gradient(135deg, #f43f5e, #fb7185);">
+                                <span>SS</span>
+                            </div>
+                            <h3>Senior Staff Engineer</h3>
+                            <p class="mentor-company">Blackduck</p>
+                            <p class="mentor-exp">10+ years experience</p>
+                            <div class="mentor-tags">
+                                <span>Backend</span>
+                                <span>Architecture</span>
+                            </div>
                         </div>
-                        <a href="#contact" class="btn btn-mentor">Book Session</a>
+
+                        <div class="mentor-slide">
+                            <div class="mentor-avatar" style="background: linear-gradient(135deg, #06b6d4, #22d3ee);">
+                                <span>SE</span>
+                            </div>
+                            <h3>Staff Engineer</h3>
+                            <p class="mentor-company">Blackduck</p>
+                            <p class="mentor-exp">10+ years experience</p>
+                            <div class="mentor-tags">
+                                <span>Backend</span>
+                                <span>System Design</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <div class="mentor-card">
-                    <div class="mentor-image">
-                        <div class="mentor-avatar" style="background: linear-gradient(135deg, #a855f7, #ec4899);">
-                            <span>PK</span>
-                        </div>
-                    </div>
-                    <div class="mentor-info">
-                        <h3>Sujay Ramachandra</h3>
-                        <p class="mentor-role">Director @ Blackduck</p>
-                        <p class="mentor-exp">17+ years experience</p>
-                        <div class="mentor-tags">
-                            <span>Career Growth</span>
-                        </div>
-                        <div class="mentor-stats">
-                            <!-- <div class="mentor-stat">
-                                <span class="stat-val">75+</span>
-                                <span class="stat-lbl">Sessions</span>
-                            </div> -->
-                            <!-- <div class="mentor-stat">
-                                <span class="stat-val">5.0</span>
-                                <span class="stat-lbl">Rating</span>
-                            </div> -->
-                        </div>
-                        <a href="#contact" class="btn btn-mentor">Book Session</a>
-                    </div>
-                </div>
-
-                <!-- <div class="mentor-card">
-                    <div class="mentor-image">
-                        <div class="mentor-avatar" style="background: linear-gradient(135deg, #f43f5e, #fb7185);">
-                            <span>RV</span>
-                        </div>
-                    </div>
-                    <div class="mentor-info">
-                        <h3>Rahul Verma</h3>
-                        <p class="mentor-role">ML Engineer @ Amazon</p>
-                        <p class="mentor-exp">6+ years experience</p>
-                        <div class="mentor-tags">
-                            <span>AI/ML</span>
-                            <span>Python</span>
-                            <span>Data Science</span>
-                        </div>
-                        <div class="mentor-stats">
-                            <div class="mentor-stat">
-                                <span class="stat-val">40+</span>
-                                <span class="stat-lbl">Sessions</span>
-                            </div>
-                            <div class="mentor-stat">
-                                <span class="stat-val">4.8</span>
-                                <span class="stat-lbl">Rating</span>
-                            </div>
-                        </div>
-                        <a href="#contact" class="btn btn-mentor">Book Session</a>
-                    </div>
-                </div> -->
-
-                <!-- <div class="mentor-card">
-                    <div class="mentor-image">
-                        <div class="mentor-avatar" style="background: linear-gradient(135deg, #06b6d4, #22d3ee);">
-                            <span>ND</span>
-                        </div>
-                    </div>
-                    <div class="mentor-info">
-                        <h3>Neha Desai</h3>
-                        <p class="mentor-role">Cloud Architect @ AWS</p>
-                        <p class="mentor-exp">7+ years experience</p>
-                        <div class="mentor-tags">
-                            <span>Cloud</span>
-                            <span>DevOps</span>
-                            <span>Architecture</span>
-                        </div>
-                        <div class="mentor-stats">
-                            <div class="mentor-stat">
-                                <span class="stat-val">60+</span>
-                                <span class="stat-lbl">Sessions</span>
-                            </div>
-                            <div class="mentor-stat">
-                                <span class="stat-val">4.9</span>
-                                <span class="stat-lbl">Rating</span>
-                            </div>
-                        </div>
-                        <a href="#contact" class="btn btn-mentor">Book Session</a>
-                    </div>
-                </div> -->
+                <button class="carousel-btn carousel-next" aria-label="Next mentor">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="carousel-dots"></div>
             </div>
 
             <div class="services-offered">
@@ -425,60 +378,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Testimonials Section -->
-    <!-- <section id="testimonials" class="testimonials-section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Success Stories</span>
-                <h2>Hear from Our <span class="gradient-text">Community</span></h2>
-                <p>Real stories from engineers who transformed their careers with SkillCompass.</p>
-            </div>
-            <div class="testimonials-slider">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <div class="quote-icon">"</div>
-                        <p>The free Q&A sessions gave me clarity on what to focus on. Then I booked 1:1 sessions with Arjun, and his mock interviews were game-changers. I landed my dream job at a unicorn startup!</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar" style="background: linear-gradient(135deg, #6366f1, #a855f7);">VK</div>
-                        <div class="author-info">
-                            <h4>Vikram Kumar</h4>
-                            <p>Software Engineer @ Razorpay</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <div class="quote-icon">"</div>
-                        <p>As a fresher with no connections in tech, SkillCompass became my support system. Priya's mentorship helped me transition from a non-CS background to a frontend role at Microsoft!</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar" style="background: linear-gradient(135deg, #a855f7, #ec4899);">SM</div>
-                        <div class="author-info">
-                            <h4>Sneha Malhotra</h4>
-                            <p>Frontend Developer @ Microsoft</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <div class="quote-icon">"</div>
-                        <p>The community here is incredibly supportive. I attended 10+ free sessions before I felt confident to apply. The structured approach to interview prep made all the difference.</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar" style="background: linear-gradient(135deg, #f43f5e, #fb7185);">AG</div>
-                        <div class="author-info">
-                            <h4>Aditya Gupta</h4>
-                            <p>Backend Engineer @ Flipkart</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
 
     <!-- CTA Section -->
     <section class="cta-section">

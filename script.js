@@ -218,6 +218,68 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
+// ===== Mentor Carousel =====
+const mentorCarousel = document.querySelector('.mentor-carousel-track');
+const mentorSlides = document.querySelectorAll('.mentor-slide');
+const prevBtn = document.querySelector('.carousel-prev');
+const nextBtn = document.querySelector('.carousel-next');
+const dotsContainer = document.querySelector('.carousel-dots');
+
+let currentSlide = 0;
+
+// Create dots
+if (mentorSlides.length > 0 && dotsContainer) {
+    mentorSlides.forEach((_, index) => {
+        const dot = document.createElement('button');
+        dot.classList.add('carousel-dot');
+        if (index === 0) dot.classList.add('active');
+        dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
+        dot.addEventListener('click', () => goToSlide(index));
+        dotsContainer.appendChild(dot);
+    });
+}
+
+const updateCarousel = () => {
+    if (mentorCarousel) {
+        mentorCarousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+    
+    // Update dots
+    document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
+    });
+};
+
+const goToSlide = (index) => {
+    currentSlide = index;
+    updateCarousel();
+};
+
+const nextSlide = () => {
+    currentSlide = (currentSlide + 1) % mentorSlides.length;
+    updateCarousel();
+};
+
+const prevSlide = () => {
+    currentSlide = (currentSlide - 1 + mentorSlides.length) % mentorSlides.length;
+    updateCarousel();
+};
+
+prevBtn?.addEventListener('click', prevSlide);
+nextBtn?.addEventListener('click', nextSlide);
+
+// Auto-advance carousel every 5 seconds
+let carouselInterval = setInterval(nextSlide, 5000);
+
+// Pause auto-advance on hover
+document.querySelector('.mentor-carousel-wrapper')?.addEventListener('mouseenter', () => {
+    clearInterval(carouselInterval);
+});
+
+document.querySelector('.mentor-carousel-wrapper')?.addEventListener('mouseleave', () => {
+    carouselInterval = setInterval(nextSlide, 5000);
+});
+
 // ===== Easter Egg: Konami Code =====
 let konamiCode = [];
 const konamiPattern = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];

@@ -192,6 +192,7 @@ body {
     max-width: 1400px;
     margin: 0 auto;
     gap: 60px;
+    overflow: visible;
 }
 
 .hero-content {
@@ -341,6 +342,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    min-height: 400px;
+    overflow: visible;
 }
 
 .compass-illustration {
@@ -382,16 +385,18 @@ body {
     font-weight: 500;
     box-shadow: var(--shadow-lg);
     animation: float-card 6s ease-in-out infinite;
+    z-index: 10;
+    white-space: nowrap;
 }
 
 .floating-card .card-icon {
     font-size: 1.5rem;
 }
 
-.card-1 { top: 10%; left: -20%; animation-delay: 0s; }
-.card-2 { top: 5%; right: -15%; animation-delay: -1.5s; }
-.card-3 { bottom: 15%; left: -25%; animation-delay: -3s; }
-.card-4 { bottom: 5%; right: -20%; animation-delay: -4.5s; }
+.card-1 { top: 5%; left: 5%; animation-delay: 0s; }
+.card-2 { top: 10%; right: 5%; animation-delay: -1.5s; }
+.card-3 { bottom: 25%; left: 0; animation-delay: -3s; }
+.card-4 { bottom: 10%; right: 5%; animation-delay: -4.5s; }
 
 @keyframes float-card {
     0%, 100% { transform: translateY(0); }
@@ -621,7 +626,141 @@ section {
     transform: translateY(-2px);
 }
 
-/* ===== Mentors Section ===== */
+/* ===== Mentors Section - Carousel ===== */
+.mentor-carousel-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.mentor-carousel {
+    flex: 1;
+    overflow: hidden;
+    border-radius: 24px;
+}
+
+.mentor-carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.mentor-slide {
+    min-width: 100%;
+    padding: 48px 32px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mentor-slide .mentor-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 24px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.mentor-slide h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.mentor-slide .mentor-company {
+    color: var(--primary);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.mentor-slide .mentor-exp {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+.mentor-slide .mentor-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.mentor-slide .mentor-tags span {
+    background: rgba(99, 102, 241, 0.15);
+    color: var(--primary);
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.carousel-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.carousel-btn:hover {
+    background: var(--gradient-primary);
+    border-color: transparent;
+    transform: scale(1.1);
+}
+
+.carousel-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 60px;
+}
+
+.carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--border-color);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carousel-dot.active {
+    background: var(--gradient-primary);
+    transform: scale(1.2);
+}
+
+.carousel-dot:hover:not(.active) {
+    background: rgba(99, 102, 241, 0.4);
+}
+
+/* Legacy mentor styles kept for compatibility */
 .mentors-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1114,8 +1253,19 @@ section {
     }
 
     .floating-card {
-        display: none;
+        padding: 8px 14px;
+        font-size: 0.85rem;
+        border-radius: 10px;
     }
+
+    .floating-card .card-icon {
+        font-size: 1.2rem;
+    }
+
+    .card-1 { top: 0; left: 10%; }
+    .card-2 { top: 5%; right: 10%; }
+    .card-3 { bottom: 20%; left: 5%; }
+    .card-4 { bottom: 5%; right: 10%; }
 
     .sessions-content {
         grid-template-columns: 1fr;
@@ -1182,6 +1332,34 @@ section {
         grid-template-columns: 1fr;
     }
 
+    .mentor-carousel-wrapper {
+        gap: 8px;
+    }
+
+    .carousel-btn {
+        width: 36px;
+        height: 36px;
+    }
+
+    .carousel-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .mentor-slide {
+        padding: 32px 20px;
+    }
+
+    .mentor-slide .mentor-avatar {
+        width: 100px;
+        height: 100px;
+        font-size: 2rem;
+    }
+
+    .mentor-slide h3 {
+        font-size: 1.25rem;
+    }
+
     .testimonials-slider {
         grid-template-columns: 1fr;
     }
@@ -1204,6 +1382,32 @@ section {
     section {
         padding: 60px 0;
     }
+
+    .hero-visual {
+        max-width: 280px;
+        min-height: 320px;
+    }
+
+    .compass-illustration {
+        width: 200px;
+        height: 200px;
+    }
+
+    .floating-card {
+        padding: 6px 10px;
+        font-size: 0.75rem;
+        border-radius: 8px;
+        gap: 6px;
+    }
+
+    .floating-card .card-icon {
+        font-size: 1rem;
+    }
+
+    .card-1 { top: 0; left: 5%; }
+    .card-2 { top: 0; right: 5%; }
+    .card-3 { bottom: 15%; left: 0; }
+    .card-4 { bottom: 5%; right: 5%; }
 
     .btn {
         padding: 12px 20px;
