@@ -145,6 +145,18 @@ contactForm?.addEventListener('submit', async function(e) {
     try {
         const formData = new FormData(this);
         
+        // Append interest selection to subject
+        const interest = formData.get('interest');
+        const interestLabels = {
+            'free-sessions': 'Free Q&A Sessions',
+            'mentorship': '1:1 Mentorship',
+            'become-mentor': 'Becoming a Mentor',
+            'other': 'Other'
+        };
+        const interestLabel = interestLabels[interest] || interest;
+        const baseSubject = formData.get('subject') || 'New SkillCompass Contact!';
+        formData.set('subject', `${baseSubject} - ${interestLabel}`);
+        
         // Create abort controller for timeout
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 15000); // 15 second timeout
