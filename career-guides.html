@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Guides - SkillCompass</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .page-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 120px 20px 60px;
+        }
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .page-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            margin-bottom: 2rem;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .guide-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .guide-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        .guide-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .guide-icon {
+            font-size: 3rem;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            flex-shrink: 0;
+        }
+        .guide-title h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        .guide-title p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        .guide-content h3 {
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+        .roadmap-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        .step {
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 12px;
+            padding: 1rem;
+        }
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .step h4 {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+        .step p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        .skill-tag {
+            padding: 0.5rem 1rem;
+            background: rgba(99, 102, 241, 0.15);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-primary);
+        }
+        .salary-range {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(34, 197, 94, 0.15);
+            border-radius: 8px;
+            color: #22c55e;
+            font-weight: 500;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+                    <circle cx="20" cy="20" r="18" stroke="url(#logoGradient)" stroke-width="3"/>
+                    <path d="M20 8L20 32M12 20L28 20" stroke="url(#logoGradient)" stroke-width="3" stroke-linecap="round"/>
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0" y1="0" x2="40" y2="40">
+                            <stop offset="0%" stop-color="#6366f1"/>
+                            <stop offset="100%" stop-color="#a855f7"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span>SkillCompass</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html#about">About</a>
+                <a href="index.html#free-sessions">Free Sessions</a>
+                <a href="index.html#mentors">Mentors</a>
+                <a href="index.html#contact" class="nav-cta">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-content">
+        <a href="index.html" class="back-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back to Home
+        </a>
+
+        <div class="page-header">
+            <h1 class="gradient-text">Career Guides</h1>
+            <p>Comprehensive roadmaps to help you navigate different tech career paths</p>
+        </div>
+
+        <!-- Frontend Developer -->
+        <div class="guide-card">
+            <div class="guide-header">
+                <div class="guide-icon" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">💻</div>
+                <div class="guide-title">
+                    <h2>Frontend Developer</h2>
+                    <p>Build beautiful, interactive user interfaces and web applications</p>
+                </div>
+            </div>
+            <div class="guide-content">
+                <h3>Learning Roadmap</h3>
+                <div class="roadmap-steps">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <h4>HTML & CSS Fundamentals</h4>
+                        <p>Semantic HTML, Flexbox, Grid, Responsive Design</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <h4>JavaScript Mastery</h4>
+                        <p>ES6+, DOM, Async/Await, APIs</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <h4>Frontend Framework</h4>
+                        <p>React, Vue, or Angular</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <h4>Build Tools & Testing</h4>
+                        <p>Webpack, Vite, Jest, Cypress</p>
+                    </div>
+                </div>
+                <div class="skills-list">
+                    <span class="skill-tag">HTML5</span>
+                    <span class="skill-tag">CSS3/SASS</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">TypeScript</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Next.js</span>
+                    <span class="skill-tag">Tailwind CSS</span>
+                    <span class="skill-tag">Git</span>
+                </div>
+                <div class="salary-range">💰 Entry Level: ₹4-8 LPA | Mid: ₹10-20 LPA | Senior: ₹25-45 LPA</div>
+            </div>
+        </div>
+
+        <!-- Backend Developer -->
+        <div class="guide-card">
+            <div class="guide-header">
+                <div class="guide-icon" style="background: linear-gradient(135deg, #a855f7, #ec4899);">⚙️</div>
+                <div class="guide-title">
+                    <h2>Backend Developer</h2>
+                    <p>Design and build server-side logic, databases, and APIs</p>
+                </div>
+            </div>
+            <div class="guide-content">
+                <h3>Learning Roadmap</h3>
+                <div class="roadmap-steps">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <h4>Programming Language</h4>
+                        <p>Python, Java, Node.js, or Go</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <h4>Databases</h4>
+                        <p>SQL, PostgreSQL, MongoDB, Redis</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <h4>APIs & Frameworks</h4>
+                        <p>REST, GraphQL, Express, Django, Spring</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <h4>DevOps Basics</h4>
+                        <p>Docker, CI/CD, Cloud Services</p>
+                    </div>
+                </div>
+                <div class="skills-list">
+                    <span class="skill-tag">Python/Java/Node.js</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">REST APIs</span>
+                    <span class="skill-tag">PostgreSQL</span>
+                    <span class="skill-tag">MongoDB</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">AWS/GCP</span>
+                    <span class="skill-tag">System Design</span>
+                </div>
+                <div class="salary-range">💰 Entry Level: ₹5-10 LPA | Mid: ₹12-25 LPA | Senior: ₹30-50 LPA</div>
+            </div>
+        </div>
+
+        <!-- Full Stack Developer -->
+        <div class="guide-card">
+            <div class="guide-header">
+                <div class="guide-icon" style="background: linear-gradient(135deg, #f43f5e, #fb7185);">🔄</div>
+                <div class="guide-title">
+                    <h2>Full Stack Developer</h2>
+                    <p>Master both frontend and backend to build complete applications</p>
+                </div>
+            </div>
+            <div class="guide-content">
+                <h3>Learning Roadmap</h3>
+                <div class="roadmap-steps">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <h4>Frontend Foundation</h4>
+                        <p>HTML, CSS, JavaScript, React</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <h4>Backend Development</h4>
+                        <p>Node.js/Python, APIs, Auth</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <h4>Database & ORM</h4>
+                        <p>SQL, NoSQL, Prisma/Sequelize</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <h4>Deployment</h4>
+                        <p>Vercel, AWS, Docker, CI/CD</p>
+                    </div>
+                </div>
+                <div class="skills-list">
+                    <span class="skill-tag">JavaScript/TypeScript</span>
+                    <span class="skill-tag">React/Next.js</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">Express</span>
+                    <span class="skill-tag">PostgreSQL</span>
+                    <span class="skill-tag">MongoDB</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">AWS</span>
+                </div>
+                <div class="salary-range">💰 Entry Level: ₹6-12 LPA | Mid: ₹15-30 LPA | Senior: ₹35-60 LPA</div>
+            </div>
+        </div>
+
+        <!-- Cloud/DevOps Engineer -->
+        <div class="guide-card">
+            <div class="guide-header">
+                <div class="guide-icon" style="background: linear-gradient(135deg, #06b6d4, #22d3ee);">☁️</div>
+                <div class="guide-title">
+                    <h2>Cloud/DevOps Engineer</h2>
+                    <p>Build and maintain scalable infrastructure and deployment pipelines</p>
+                </div>
+            </div>
+            <div class="guide-content">
+                <h3>Learning Roadmap</h3>
+                <div class="roadmap-steps">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <h4>Linux & Networking</h4>
+                        <p>Shell scripting, TCP/IP, DNS</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <h4>Cloud Platform</h4>
+                        <p>AWS, GCP, or Azure certification</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <h4>Containerization</h4>
+                        <p>Docker, Kubernetes, Helm</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <h4>CI/CD & IaC</h4>
+                        <p>Jenkins, GitHub Actions, Terraform</p>
+                    </div>
+                </div>
+                <div class="skills-list">
+                    <span class="skill-tag">Linux</span>
+                    <span class="skill-tag">AWS/GCP/Azure</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">Kubernetes</span>
+                    <span class="skill-tag">Terraform</span>
+                    <span class="skill-tag">Jenkins</span>
+                    <span class="skill-tag">Python/Bash</span>
+                    <span class="skill-tag">Monitoring</span>
+                </div>
+                <div class="salary-range">💰 Entry Level: ₹6-12 LPA | Mid: ₹15-30 LPA | Senior: ₹35-70 LPA</div>
+            </div>
+        </div>
+
+        <!-- AI/ML Engineer -->
+        <div class="guide-card">
+            <div class="guide-header">
+                <div class="guide-icon" style="background: linear-gradient(135deg, #22c55e, #16a34a);">🤖</div>
+                <div class="guide-title">
+                    <h2>AI/ML Engineer</h2>
+                    <p>Build intelligent systems using machine learning and AI technologies</p>
+                </div>
+            </div>
+            <div class="guide-content">
+                <h3>Learning Roadmap</h3>
+                <div class="roadmap-steps">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <h4>Math & Statistics</h4>
+                        <p>Linear Algebra, Calculus, Probability</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <h4>Python & Libraries</h4>
+                        <p>NumPy, Pandas, Scikit-learn</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <h4>Deep Learning</h4>
+                        <p>TensorFlow, PyTorch, Neural Networks</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <h4>MLOps & Deployment</h4>
+                        <p>MLflow, Model serving, APIs</p>
+                    </div>
+                </div>
+                <div class="skills-list">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">TensorFlow/PyTorch</span>
+                    <span class="skill-tag">Scikit-learn</span>
+                    <span class="skill-tag">Deep Learning</span>
+                    <span class="skill-tag">NLP</span>
+                    <span class="skill-tag">Computer Vision</span>
+                    <span class="skill-tag">MLOps</span>
+                    <span class="skill-tag">Statistics</span>
+                </div>
+                <div class="salary-range">💰 Entry Level: ₹8-15 LPA | Mid: ₹20-40 LPA | Senior: ₹45-80 LPA</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 SkillCompass. All rights reserved. Made with ❤️ for aspiring engineers.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - SkillCompass</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .page-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 120px 20px 60px;
+        }
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .page-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            margin-bottom: 2rem;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .faq-category {
+            margin-bottom: 2.5rem;
+        }
+        .faq-category h2 {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .faq-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        .faq-question {
+            width: 100%;
+            padding: 1.25rem 1.5rem;
+            background: transparent;
+            border: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            text-align: left;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            font-family: inherit;
+        }
+        .faq-question:hover {
+            background: rgba(99, 102, 241, 0.05);
+        }
+        .faq-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: rgba(99, 102, 241, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            transition: transform 0.3s;
+            flex-shrink: 0;
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+        .faq-answer-content {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        .faq-answer-content a {
+            color: var(--primary);
+        }
+        .contact-cta {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(168, 85, 247, 0.1));
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        .contact-cta h3 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        .contact-cta p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+                    <circle cx="20" cy="20" r="18" stroke="url(#logoGradient)" stroke-width="3"/>
+                    <path d="M20 8L20 32M12 20L28 20" stroke="url(#logoGradient)" stroke-width="3" stroke-linecap="round"/>
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0" y1="0" x2="40" y2="40">
+                            <stop offset="0%" stop-color="#6366f1"/>
+                            <stop offset="100%" stop-color="#a855f7"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span>SkillCompass</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html#about">About</a>
+                <a href="index.html#free-sessions">Free Sessions</a>
+                <a href="index.html#mentors">Mentors</a>
+                <a href="index.html#contact" class="nav-cta">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-content">
+        <a href="index.html" class="back-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back to Home
+        </a>
+
+        <div class="page-header">
+            <h1 class="gradient-text">Frequently Asked Questions</h1>
+            <p>Find answers to common questions about SkillCompass</p>
+        </div>
+
+        <!-- General Questions -->
+        <div class="faq-category">
+            <h2>📋 General Questions</h2>
+            
+            <div class="faq-item">
+                <button class="faq-question">
+                    What is SkillCompass?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        SkillCompass is a tech mentorship platform designed specifically for graduating engineers and early-career professionals looking to break into the IT industry. We offer free community Q&A sessions and premium 1:1 mentorship with experienced industry professionals from top tech companies.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    Who are the mentors at SkillCompass?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Our mentors are experienced professionals working at leading tech companies like Microsoft, Fortune 500 companies, and other top organizations. They have 10-17+ years of industry experience and are passionate about helping the next generation of engineers succeed.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    Is SkillCompass only for fresh graduates?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        While we primarily focus on fresh graduates and final-year students, our services are open to anyone looking to transition into tech or advance their early career. Whether you're a career switcher, self-taught developer, or someone with a few years of experience looking to level up, we're here to help.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Free Sessions -->
+        <div class="faq-category">
+            <h2>🎓 Free Sessions</h2>
+            
+            <div class="faq-item">
+                <button class="faq-question">
+                    How do I join the free Q&A sessions?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Simply register for the next session through our website. Click the "Register for Free" button on the homepage, and you'll be directed to our registration page. You'll receive a confirmation email with the session link and details.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    How often are the free sessions held?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        We typically host bi-weekly sessions on Saturdays. However, the schedule may vary based on mentor availability and special events. Check our homepage for the countdown to the next session and make sure to register early!
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    What topics are covered in free sessions?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Our free sessions cover a wide range of topics including resume building, DSA preparation, system design basics, career roadmaps, interview tips, salary negotiation, portfolio projects, and networking. The sessions are Q&A format, so you can ask questions specific to your situation.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    Are the free sessions recorded?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Sessions may be recorded for internal purposes, but recordings are not typically shared publicly. We encourage you to attend live sessions to participate in the Q&A and get your specific questions answered.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 1:1 Mentorship -->
+        <div class="faq-category">
+            <h2>👨‍🏫 1:1 Mentorship</h2>
+            
+            <div class="faq-item">
+                <button class="faq-question">
+                    How does 1:1 mentorship work?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        After you sign up, we'll match you with a mentor based on your goals, interests, and the mentor's expertise. You'll have scheduled video calls where you can discuss anything from career advice and resume reviews to mock interviews and technical guidance. Sessions are typically 45-60 minutes.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    How much does 1:1 mentorship cost?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Please <a href="index.html#contact">contact us</a> for current pricing. We offer both single sessions and package deals for ongoing mentorship. We strive to keep our pricing accessible while ensuring quality mentorship from experienced professionals.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    What's included in 1:1 mentorship?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Our 1:1 mentorship includes: personalized mock interviews, detailed resume reviews, custom career roadmaps, ongoing chat support between sessions, and actionable feedback tailored to your goals. The exact offerings may vary based on your package and mentor specialization.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    Can I choose my mentor?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Yes! We'll recommend mentors based on your goals and interests, but you have the final say. If you want to work with a specific mentor or switch mentors, just let us know and we'll do our best to accommodate your preference.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    What if I'm not satisfied with my session?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        We offer a satisfaction guarantee for your first session. If you're not happy, we'll offer a full refund or match you with a different mentor. Please see our <a href="refund-policy.html">Refund Policy</a> for complete details.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical & Booking -->
+        <div class="faq-category">
+            <h2>🔧 Technical & Booking</h2>
+            
+            <div class="faq-item">
+                <button class="faq-question">
+                    What platform do you use for sessions?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        We primarily use Google Meet or Zoom for our sessions. You'll receive a meeting link in your confirmation email. Make sure you have a stable internet connection, a working microphone, and optionally a camera.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    How do I reschedule a session?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        You can reschedule a session with at least 24 hours notice. Simply contact us through our contact form or reply to your booking confirmation email with your preferred alternative times.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    What time zone are the sessions in?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Free group sessions are typically scheduled in IST (Indian Standard Time) to accommodate our primary audience. For 1:1 mentorship, we work with you to find a time that works across time zones.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Becoming a Mentor -->
+        <div class="faq-category">
+            <h2>🌟 Becoming a Mentor</h2>
+            
+            <div class="faq-item">
+                <button class="faq-question">
+                    How can I become a mentor at SkillCompass?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        We're always looking for experienced professionals who want to give back! If you have 5+ years of industry experience and are passionate about helping early-career engineers, please reach out through our <a href="index.html#contact">contact form</a> and select "Becoming a Mentor" as your interest.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    What are the requirements to be a mentor?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        We look for mentors with: at least 5 years of relevant industry experience, strong communication skills, patience and genuine interest in helping others, and the ability to commit to at least 2-4 hours per month. Prior mentoring experience is a plus but not required.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact CTA -->
+        <div class="contact-cta">
+            <h3>Still have questions?</h3>
+            <p>Can't find what you're looking for? We're here to help!</p>
+            <a href="index.html#contact" class="btn btn-primary">
+                <span>Contact Us</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 SkillCompass. All rights reserved. Made with ❤️ for aspiring engineers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all other FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Toggle current item
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Prep - SkillCompass</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .page-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 120px 20px 60px;
+        }
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .page-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            margin-bottom: 2rem;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .section {
+            margin-bottom: 3rem;
+        }
+        .section h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .prep-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .prep-card h3 {
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+        }
+        .prep-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        .prep-card ul {
+            padding-left: 1.5rem;
+            color: var(--text-secondary);
+        }
+        .prep-card li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(168, 85, 247, 0.1));
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-top: 1rem;
+        }
+        .tip-box strong {
+            color: var(--primary);
+        }
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        .resource-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.25rem;
+            transition: transform 0.3s;
+        }
+        .resource-item:hover {
+            transform: translateY(-3px);
+        }
+        .resource-item h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .resource-item p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+        .checklist {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+        }
+        .checklist-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: rgba(99, 102, 241, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--primary);
+            font-size: 0.8rem;
+        }
+        .checklist-item span {
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+        }
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2rem;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary);
+            transform: translateX(-5px);
+        }
+        .timeline-item h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        .timeline-item p {
+            color: var(--text-secondary);
+            margin: 0;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+                    <circle cx="20" cy="20" r="18" stroke="url(#logoGradient)" stroke-width="3"/>
+                    <path d="M20 8L20 32M12 20L28 20" stroke="url(#logoGradient)" stroke-width="3" stroke-linecap="round"/>
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0" y1="0" x2="40" y2="40">
+                            <stop offset="0%" stop-color="#6366f1"/>
+                            <stop offset="100%" stop-color="#a855f7"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span>SkillCompass</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html#about">About</a>
+                <a href="index.html#free-sessions">Free Sessions</a>
+                <a href="index.html#mentors">Mentors</a>
+                <a href="index.html#contact" class="nav-cta">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-content">
+        <a href="index.html" class="back-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back to Home
+        </a>
+
+        <div class="page-header">
+            <h1 class="gradient-text">Interview Prep</h1>
+            <p>Everything you need to ace your tech interviews</p>
+        </div>
+
+        <!-- DSA Section -->
+        <div class="section">
+            <h2>🧩 Data Structures & Algorithms</h2>
+            
+            <div class="prep-card">
+                <h3>Essential Topics to Master</h3>
+                <ul>
+                    <li><strong>Arrays & Strings:</strong> Two pointers, sliding window, prefix sums</li>
+                    <li><strong>Linked Lists:</strong> Reversal, cycle detection, merge operations</li>
+                    <li><strong>Trees & Graphs:</strong> BFS, DFS, binary search trees, traversals</li>
+                    <li><strong>Dynamic Programming:</strong> Memoization, tabulation, common patterns</li>
+                    <li><strong>Sorting & Searching:</strong> Binary search variations, merge sort, quick sort</li>
+                    <li><strong>Stacks & Queues:</strong> Monotonic stacks, priority queues</li>
+                    <li><strong>Hash Maps:</strong> Frequency counting, two sum patterns</li>
+                </ul>
+                <div class="tip-box">
+                    <strong>💡 Pro Tip:</strong> Focus on understanding patterns rather than memorizing solutions. Most interview problems are variations of common patterns.
+                </div>
+            </div>
+
+            <div class="resource-grid">
+                <div class="resource-item">
+                    <h4>📚 LeetCode</h4>
+                    <p>Practice 150-200 problems covering all major patterns</p>
+                </div>
+                <div class="resource-item">
+                    <h4>📖 NeetCode 150</h4>
+                    <p>Curated list with video explanations for each problem</p>
+                </div>
+                <div class="resource-item">
+                    <h4>🎯 Blind 75</h4>
+                    <p>Most frequently asked questions at top companies</p>
+                </div>
+                <div class="resource-item">
+                    <h4>📝 Striver's SDE Sheet</h4>
+                    <p>Comprehensive roadmap for placement preparation</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- System Design Section -->
+        <div class="section">
+            <h2>🏗️ System Design</h2>
+            
+            <div class="prep-card">
+                <h3>Key Concepts to Learn</h3>
+                <ul>
+                    <li><strong>Scalability:</strong> Horizontal vs vertical scaling, load balancing</li>
+                    <li><strong>Databases:</strong> SQL vs NoSQL, sharding, replication, indexing</li>
+                    <li><strong>Caching:</strong> Redis, CDN, cache invalidation strategies</li>
+                    <li><strong>Message Queues:</strong> Kafka, RabbitMQ, async processing</li>
+                    <li><strong>Microservices:</strong> API design, service discovery, circuit breakers</li>
+                    <li><strong>CAP Theorem:</strong> Consistency, Availability, Partition tolerance trade-offs</li>
+                </ul>
+            </div>
+
+            <div class="prep-card">
+                <h3>Common System Design Questions</h3>
+                <ul>
+                    <li>Design a URL shortener (like bit.ly)</li>
+                    <li>Design a social media feed (like Twitter/Instagram)</li>
+                    <li>Design a chat application (like WhatsApp)</li>
+                    <li>Design a video streaming service (like YouTube)</li>
+                    <li>Design an e-commerce platform (like Amazon)</li>
+                    <li>Design a ride-sharing service (like Uber)</li>
+                </ul>
+                <div class="tip-box">
+                    <strong>💡 Pro Tip:</strong> Always start by clarifying requirements, then discuss trade-offs. There's no perfect solution—show your thought process!
+                </div>
+            </div>
+        </div>
+
+        <!-- Behavioral Section -->
+        <div class="section">
+            <h2>🗣️ Behavioral Interviews</h2>
+            
+            <div class="prep-card">
+                <h3>The STAR Method</h3>
+                <p>Structure your answers using this proven framework:</p>
+                <ul>
+                    <li><strong>Situation:</strong> Set the context for your story</li>
+                    <li><strong>Task:</strong> Describe your responsibility</li>
+                    <li><strong>Action:</strong> Explain what you did (focus here!)</li>
+                    <li><strong>Result:</strong> Share the outcomes and learnings</li>
+                </ul>
+            </div>
+
+            <div class="prep-card">
+                <h3>Common Questions to Prepare</h3>
+                <ul>
+                    <li>Tell me about yourself (2-minute elevator pitch)</li>
+                    <li>Describe a challenging project you worked on</li>
+                    <li>Tell me about a time you had a conflict with a teammate</li>
+                    <li>How do you handle tight deadlines?</li>
+                    <li>What's your biggest weakness? (And how are you improving?)</li>
+                    <li>Why do you want to work at [Company]?</li>
+                    <li>Where do you see yourself in 5 years?</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Interview Day Checklist -->
+        <div class="section">
+            <h2>✅ Interview Day Checklist</h2>
+            
+            <div class="checklist">
+                <div class="checklist-item">
+                    <span class="checklist-icon">✓</span>
+                    <span>Test your internet connection, camera, and microphone</span>
+                </div>
+                <div class="checklist-item">
+                    <span class="checklist-icon">✓</span>
+                    <span>Have a glass of water nearby</span>
+                </div>
+                <div class="checklist-item">
+                    <span class="checklist-icon">✓</span>
+                    <span>Keep your resume and notes accessible</span>
+                </div>
+                <div class="checklist-item">
+                    <span class="checklist-icon">✓</span>
+                    <span>Research the company and interviewers</span>
+                </div>
+                <div class="checklist-item">
+                    <span class="checklist-icon">✓</span>
+                    <span>Prepare 3-5 questions to ask the interviewer</span>
+                </div>
+                <div class="checklist-item">
+                    <span class="checklist-icon">✓</span>
+                    <span>Join 5 minutes early</span>
+                </div>
+                <div class="checklist-item">
+                    <span class="checklist-icon">✓</span>
+                    <span>Think out loud during coding problems</span>
+                </div>
+                <div class="checklist-item">
+                    <span class="checklist-icon">✓</span>
+                    <span>Ask clarifying questions before coding</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Prep Timeline -->
+        <div class="section">
+            <h2>📅 Recommended Prep Timeline</h2>
+            
+            <div class="prep-card">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h4>Month 1-2: Foundation</h4>
+                        <p>Master basic data structures (arrays, strings, linked lists, trees). Solve 50-75 easy problems. Build a strong foundation.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Month 2-3: Intermediate</h4>
+                        <p>Learn graphs, dynamic programming, and advanced patterns. Solve 75-100 medium problems. Start timed practice.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Month 3-4: Advanced</h4>
+                        <p>System design fundamentals, hard problems, mock interviews. Practice under pressure. Refine your approach.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Final Week: Polish</h4>
+                        <p>Review your notes, practice behavioral questions, research target companies. Rest well before interviews!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="prep-card" style="text-align: center; background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(168, 85, 247, 0.1));">
+            <h3>Need Personalized Interview Prep?</h3>
+            <p>Our mentors conduct mock interviews and provide detailed feedback to help you succeed.</p>
+            <a href="index.html#contact" class="btn btn-primary" style="margin-top: 1rem;">
+                <span>Get Mock Interview</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 SkillCompass. All rights reserved. Made with ❤️ for aspiring engineers.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

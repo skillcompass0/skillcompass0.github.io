@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - SkillCompass</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .page-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 120px 20px 60px;
+        }
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .page-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            margin-bottom: 2rem;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .blog-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        .blog-image {
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+        .blog-content {
+            padding: 1.5rem;
+        }
+        .blog-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(99, 102, 241, 0.2);
+            color: var(--primary);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+        .blog-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+        .blog-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+        }
+        .read-more {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .read-more:hover {
+            text-decoration: underline;
+        }
+        .coming-soon-banner {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(168, 85, 247, 0.1));
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .coming-soon-banner h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        .coming-soon-banner p {
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+                    <circle cx="20" cy="20" r="18" stroke="url(#logoGradient)" stroke-width="3"/>
+                    <path d="M20 8L20 32M12 20L28 20" stroke="url(#logoGradient)" stroke-width="3" stroke-linecap="round"/>
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0" y1="0" x2="40" y2="40">
+                            <stop offset="0%" stop-color="#6366f1"/>
+                            <stop offset="100%" stop-color="#a855f7"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span>SkillCompass</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html#about">About</a>
+                <a href="index.html#free-sessions">Free Sessions</a>
+                <a href="index.html#mentors">Mentors</a>
+                <a href="index.html#contact" class="nav-cta">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-content">
+        <a href="index.html" class="back-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back to Home
+        </a>
+
+        <div class="page-header">
+            <h1 class="gradient-text">Blog</h1>
+            <p>Insights, tips, and stories to help you navigate your tech career journey</p>
+        </div>
+
+        <div class="coming-soon-banner">
+            <h3>🚀 More Articles Coming Soon!</h3>
+            <p>We're working on fresh content. Join our free sessions to get updates!</p>
+        </div>
+
+        <div class="blog-grid">
+            <article class="blog-card">
+                <div class="blog-image" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">📝</div>
+                <div class="blog-content">
+                    <span class="blog-tag">Career Tips</span>
+                    <h3>How to Write a Resume That Gets Interviews</h3>
+                    <p>Learn the key elements that make your resume stand out to recruiters and pass ATS systems.</p>
+                    <div class="blog-meta">
+                        <span>Jan 20, 2026</span>
+                        <span>5 min read</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-image" style="background: linear-gradient(135deg, #a855f7, #ec4899);">💡</div>
+                <div class="blog-content">
+                    <span class="blog-tag">Interview Prep</span>
+                    <h3>Top 10 DSA Patterns Every Developer Should Know</h3>
+                    <p>Master these fundamental patterns to solve most coding interview problems with confidence.</p>
+                    <div class="blog-meta">
+                        <span>Jan 15, 2026</span>
+                        <span>8 min read</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-image" style="background: linear-gradient(135deg, #f43f5e, #fb7185);">🎯</div>
+                <div class="blog-content">
+                    <span class="blog-tag">Career Growth</span>
+                    <h3>From Campus to Corporate: A Fresh Graduate's Guide</h3>
+                    <p>Everything you need to know about transitioning from college to your first tech job.</p>
+                    <div class="blog-meta">
+                        <span>Jan 10, 2026</span>
+                        <span>6 min read</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-image" style="background: linear-gradient(135deg, #06b6d4, #22d3ee);">🌐</div>
+                <div class="blog-content">
+                    <span class="blog-tag">Tech Trends</span>
+                    <h3>The Most In-Demand Tech Skills in 2026</h3>
+                    <p>Discover which technologies and skills employers are looking for this year.</p>
+                    <div class="blog-meta">
+                        <span>Jan 5, 2026</span>
+                        <span>7 min read</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-image" style="background: linear-gradient(135deg, #22c55e, #16a34a);">🤝</div>
+                <div class="blog-content">
+                    <span class="blog-tag">Networking</span>
+                    <h3>Building Your Professional Network as a New Developer</h3>
+                    <p>Practical tips for connecting with industry professionals and growing your network.</p>
+                    <div class="blog-meta">
+                        <span>Jan 1, 2026</span>
+                        <span>5 min read</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-image" style="background: linear-gradient(135deg, #f59e0b, #fbbf24);">💰</div>
+                <div class="blog-content">
+                    <span class="blog-tag">Salary</span>
+                    <h3>How to Negotiate Your First Tech Salary</h3>
+                    <p>Don't leave money on the table. Learn negotiation strategies that work for fresh graduates.</p>
+                    <div class="blog-meta">
+                        <span>Dec 28, 2025</span>
+                        <span>6 min read</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 SkillCompass. All rights reserved. Made with ❤️ for aspiring engineers.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
