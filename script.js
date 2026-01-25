@@ -145,18 +145,24 @@ contactForm?.addEventListener('submit', async function(e) {
     try {
         const formData = new FormData(this);
         
+        // Create abort controller for timeout
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 15000); // 15 second timeout
+        
         const response = await fetch(this.action, {
             method: 'POST',
             body: formData,
             headers: {
                 'Accept': 'application/json'
             },
-            redirect: 'manual' // Prevent following redirects
+            signal: controller.signal
         });
         
-        // Formsubmit returns 302 redirect on success, or 200 with JSON
-        // response.type === 'opaqueredirect' when redirect: 'manual' is used
-        if (response.ok || response.type === 'opaqueredirect' || response.status === 0) {
+        clearTimeout(timeoutId);
+        
+        const result = await response.json();
+        
+        if (result.success) {
             // Success
             btn.innerHTML = '<span>Message Sent! ✓</span>';
             btn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
@@ -165,14 +171,19 @@ contactForm?.addEventListener('submit', async function(e) {
             // Show success message
             showFormMessage('success', 'Thank you! Your message has been sent successfully. We\'ll get back to you within 24-48 hours.');
         } else {
-            throw new Error('Form submission failed');
+            throw new Error(result.message || 'Form submission failed');
         }
     } catch (error) {
         // Error
         btn.innerHTML = '<span>Failed to Send ✗</span>';
         btn.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
         
-        showFormMessage('error', 'Oops! Something went wrong. Please try again or email us directly at hello@skillcompass.io');
+        // Specific message for timeout
+        const errorMsg = error.name === 'AbortError' 
+            ? 'Request timed out. Please check your connection and try again.'
+            : 'Oops! Something went wrong. Please try again or email us directly at hello@skillcompass.io';
+        
+        showFormMessage('error', errorMsg);
     }
     
     // Reset button after 4 seconds
