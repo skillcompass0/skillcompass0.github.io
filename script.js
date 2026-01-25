@@ -132,36 +132,80 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // ===== Form Submission =====
 const contactForm = document.getElementById('contactForm');
 
-contactForm?.addEventListener('submit', function(e) {
+contactForm?.addEventListener('submit', async function(e) {
     e.preventDefault();
     
-    // Get form data
-    const formData = new FormData(this);
-    const data = Object.fromEntries(formData);
-    
-    // Simulate form submission
     const btn = this.querySelector('button[type="submit"]');
     const originalText = btn.innerHTML;
     
+    // Show loading state
     btn.innerHTML = '<span>Sending...</span>';
     btn.disabled = true;
     
+    try {
+        const formData = new FormData(this);
+        
+        const response = await fetch(this.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            },
+            redirect: 'manual' // Prevent following redirects
+        });
+        
+        // Formsubmit returns 302 redirect on success, or 200 with JSON
+        // response.type === 'opaqueredirect' when redirect: 'manual' is used
+        if (response.ok || response.type === 'opaqueredirect' || response.status === 0) {
+            // Success
+            btn.innerHTML = '<span>Message Sent! ✓</span>';
+            btn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
+            this.reset();
+            
+            // Show success message
+            showFormMessage('success', 'Thank you! Your message has been sent successfully. We\'ll get back to you within 24-48 hours.');
+        } else {
+            throw new Error('Form submission failed');
+        }
+    } catch (error) {
+        // Error
+        btn.innerHTML = '<span>Failed to Send ✗</span>';
+        btn.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
+        
+        showFormMessage('error', 'Oops! Something went wrong. Please try again or email us directly at hello@skillcompass.io');
+    }
+    
+    // Reset button after 4 seconds
     setTimeout(() => {
-        // Show success message
-        btn.innerHTML = '<span>Message Sent! ✓</span>';
-        btn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
-        
-        // Reset form
-        this.reset();
-        
-        // Reset button after 3 seconds
-        setTimeout(() => {
-            btn.innerHTML = originalText;
-            btn.style.background = '';
-            btn.disabled = false;
-        }, 3000);
-    }, 1500);
+        btn.innerHTML = originalText;
+        btn.style.background = '';
+        btn.disabled = false;
+    }, 4000);
 });
+
+// Helper function to show form messages
+function showFormMessage(type, message) {
+    // Remove any existing message
+    const existingMsg = document.querySelector('.form-message');
+    if (existingMsg) existingMsg.remove();
+    
+    // Create message element
+    const msgDiv = document.createElement('div');
+    msgDiv.className = `form-message form-message-${type}`;
+    msgDiv.innerHTML = `
+        <span class="form-message-icon">${type === 'success' ? '✓' : '✗'}</span>
+        <span class="form-message-text">${message}</span>
+    `;
+    
+    // Insert after the form
+    contactForm.parentNode.insertBefore(msgDiv, contactForm.nextSibling);
+    
+    // Auto-remove after 8 seconds
+    setTimeout(() => {
+        msgDiv.classList.add('form-message-fade');
+        setTimeout(() => msgDiv.remove(), 500);
+    }, 8000);
+}
 
 // ===== Parallax Effect for Floating Cards =====
 document.addEventListener('mousemove', (e) => {
