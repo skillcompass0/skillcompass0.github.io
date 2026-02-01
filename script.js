@@ -80,21 +80,21 @@ document.querySelectorAll('.feature-card, .mentor-card, .testimonial-card, .serv
 
 // ===== Countdown Timer =====
 const updateCountdown = () => {
-    // Set next session to next Saturday at 10:00 AM
+    // Set next session to next Friday at 6:00 PM
     const now = new Date();
-    const nextSaturday = new Date();
+    const nextFriday = new Date();
     
-    // Calculate days until next Saturday (6 = Saturday)
-    const daysUntilSaturday = (6 - now.getDay() + 7) % 7 || 7;
-    nextSaturday.setDate(now.getDate() + daysUntilSaturday);
-    nextSaturday.setHours(10, 0, 0, 0);
+    // Calculate days until next Friday (5 = Friday)
+    const daysUntilFriday = (5 - now.getDay() + 7) % 7 || 7;
+    nextFriday.setDate(now.getDate() + daysUntilFriday);
+    nextFriday.setHours(18, 0, 0, 0);
     
-    // If it's Saturday and past 10 AM, set to next Saturday
-    if (now.getDay() === 6 && now.getHours() >= 10) {
-        nextSaturday.setDate(nextSaturday.getDate() + 7);
+    // If it's Friday and past 6 PM, set to next Friday
+    if (now.getDay() === 5 && now.getHours() >= 18) {
+        nextFriday.setDate(nextFriday.getDate() + 7);
     }
     
-    const diff = nextSaturday - now;
+    const diff = nextFriday - now;
     
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
     const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
