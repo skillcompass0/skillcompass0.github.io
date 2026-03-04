@@ -53,6 +53,7 @@
                 <span>SkillCompass</span>
             </a>
             <div class="nav-links">
+                <a href="#testimonials">Success Stories</a>
                 <a href="#about">About</a>
                 <a href="#free-sessions">Free Sessions</a>
                 <a href="#mentors">Mentors</a>
@@ -215,35 +216,8 @@
                 <p>Join our periodic online Q&A sessions where industry experts answer your burning questions about breaking into tech.</p>
             </div>
             <div class="sessions-content">
-                <div class="session-info">
-                    <div class="info-card">
-                        <div class="info-icon">📅</div>
-                        <div class="info-text">
-                            <h4>Regular Sessions</h4>
-                            <p>Bi-weekly online meetups every Saturday</p>
-                        </div>
-                    </div>
-                    <div class="info-card">
-                        <div class="info-icon">🎯</div>
-                        <div class="info-text">
-                            <h4>Q&A Format</h4>
-                            <p>Ask anything about tech careers, interviews, or skills</p>
-                        </div>
-                    </div>
-                    <div class="info-card">
-                        <div class="info-icon">👥</div>
-                        <div class="info-text">
-                            <h4>Community Driven</h4>
-                            <p>Connect with fellow graduating engineers</p>
-                        </div>
-                    </div>
-                    <div class="info-card">
-                        <div class="info-icon">🎓</div>
-                        <div class="info-text">
-                            <h4>Expert Panels</h4>
-                            <p>Different industry experts each session</p>
-                        </div>
-                    </div>
+                <div class="session-flyer">
+                    <img src="assets/sessions/Mar26/Flyer1.png" alt="Next Session Flyer - March 2026" loading="lazy">
                 </div>
                 <div class="session-cta">
                     <div class="next-session">
@@ -275,6 +249,36 @@
                     </div>
                 </div>
             </div>
+            <div class="session-info-grid">
+                <div class="info-card">
+                    <div class="info-icon">📅</div>
+                    <div class="info-text">
+                        <h4>Regular Sessions</h4>
+                        <p>Bi-weekly online meetups every Saturday</p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">🎯</div>
+                    <div class="info-text">
+                        <h4>Q&A Format</h4>
+                        <p>Ask anything about tech careers, interviews, or skills</p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">👥</div>
+                    <div class="info-text">
+                        <h4>Community Driven</h4>
+                        <p>Connect with fellow graduating engineers</p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">🎓</div>
+                    <div class="info-text">
+                        <h4>Expert Panels</h4>
+                        <p>Different industry experts each session</p>
+                    </div>
+                </div>
+            </div>
             <div class="topics-covered">
                 <h3>Topics We Cover</h3>
                 <div class="topics-grid">
@@ -290,6 +294,52 @@
             </div>
         </div>
     </section>
+
+    <!-- Past Sessions Gallery -->
+    <section id="past-sessions" class="past-sessions-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Session Archive</span>
+                <h2>Our <span class="gradient-text">Past Sessions</span></h2>
+                <p>A look back at our previous sessions. Click any flyer to view full size.</p>
+            </div>
+            <div class="flyer-gallery">
+                <div class="flyer-card" data-flyer="assets/sessions/Feb26/Flyer1.png">
+                    <div class="flyer-image-wrapper">
+                        <img src="assets/sessions/Feb26/Flyer1.png" alt="Session Flyer - Resume Building" loading="lazy">
+                        <div class="flyer-overlay">
+                            <div class="flyer-overlay-content">
+                                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+                                    <path d="M11 8v6M8 11h6"/>
+                                </svg>
+                                <span>View Flyer</span>
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="flyer-info">
+                        <h4>Resume Building</h4>
+                        <p>Feb 2026 &bull; Session 1</p>
+                        <a href="assets/sessions/Feb26/resources/ResumeBuilding.pdf" download class="flyer-download" onclick="event.stopPropagation();">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="7 10 12 15 17 10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                            <span>Download Resources</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Flyer Lightbox Modal -->
+    <div class="flyer-lightbox" id="flyerLightbox">
+        <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+        <img class="lightbox-image" id="lightboxImage" src="" alt="Flyer full view">
+    </div>
 
     <!-- Mentors Section -->
     <section id="mentors" class="mentors-section">
