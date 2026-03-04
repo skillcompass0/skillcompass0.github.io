@@ -80,21 +80,20 @@ document.querySelectorAll('.feature-card, .mentor-card, .testimonial-card, .serv
 
 // ===== Countdown Timer =====
 const updateCountdown = () => {
-    // Set next session to next Friday at 6:00 PM
+    // Next session: March 13, 2026 at 6:00 PM
     const now = new Date();
-    const nextFriday = new Date();
+    const nextSession = new Date('2026-03-13T18:00:00');
     
-    // Calculate days until next Friday (5 = Friday)
-    const daysUntilFriday = (5 - now.getDay() + 7) % 7 || 7;
-    nextFriday.setDate(now.getDate() + daysUntilFriday);
-    nextFriday.setHours(18, 0, 0, 0);
+    const diff = nextSession - now;
     
-    // If it's Friday and past 6 PM, set to next Friday
-    if (now.getDay() === 5 && now.getHours() >= 18) {
-        nextFriday.setDate(nextFriday.getDate() + 7);
+    // If countdown has reached 0, show "Next Session Coming Soon"
+    if (diff <= 0) {
+        const countdownEl = document.getElementById('countdown');
+        if (countdownEl) {
+            countdownEl.innerHTML = '<span style="font-size:1.5rem;font-weight:600;color:var(--primary-color,#6c63ff);">Next Session Coming Soon</span>';
+        }
+        return;
     }
-    
-    const diff = nextFriday - now;
     
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
     const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
