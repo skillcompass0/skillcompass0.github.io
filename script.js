@@ -80,9 +80,9 @@ document.querySelectorAll('.feature-card, .mentor-card, .testimonial-card, .serv
 
 // ===== Countdown Timer =====
 const updateCountdown = () => {
-    // Next session: March 13, 2026 at 6:00 PM
+    // Next session: April 2, 2026 at 6:00 PM
     const now = new Date();
-    const nextSession = new Date('2026-03-13T18:00:00');
+    const nextSession = new Date('2026-04-02T18:00:00');
     
     const diff = nextSession - now;
     
