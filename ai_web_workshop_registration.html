@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Build Your First Product with AI | SkillCompass</title>
+<meta name="description" content="A fun, hands-on 8-hour online AI + Web Development workshop for kids aged 10–15. Build and publish your first portfolio website with AI.">
+
+<style>
+:root{
+  --bg:#070b17;
+  --bg2:#0b1020;
+  --surface:#11182b;
+  --surface2:#151e35;
+  --white:#fff;
+  --text:#e9edff;
+  --muted:#a7b0c8;
+  --purple:#8b5cf6;
+  --violet:#a855f7;
+  --blue:#3b82f6;
+  --cyan:#22d3ee;
+  --pink:#ec4899;
+  --green:#34d399;
+  --yellow:#fbbf24;
+  --line:rgba(255,255,255,.10);
+  --shadow:0 24px 80px rgba(0,0,0,.35);
+  --radius:22px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 15% 5%,rgba(139,92,246,.13),transparent 30%),
+    radial-gradient(circle at 85% 15%,rgba(34,211,238,.09),transparent 25%),
+    var(--bg);
+  line-height:1.6;
+}
+a{text-decoration:none;color:inherit}
+button,input,select,textarea{font:inherit}
+
+.container{width:min(1160px,calc(100% - 40px));margin:auto}
+
+/* NAV */
+.navbar{
+  position:sticky;top:0;z-index:100;
+  background:rgba(7,11,23,.82);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line);
+}
+.nav{
+  height:74px;display:flex;align-items:center;justify-content:space-between;gap:30px;
+}
+.logo{
+  font-size:1.25rem;font-weight:900;letter-spacing:-.03em;
+}
+.logo span{
+  background:linear-gradient(90deg,#fff,#a78bfa,#67e8f9);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.nav-links{display:flex;align-items:center;gap:26px;color:#cbd2e5;font-size:.92rem}
+.nav-links a:hover{color:#fff}
+.nav-button{
+  padding:10px 18px;border-radius:999px;
+  background:linear-gradient(90deg,var(--purple),var(--blue));
+  color:#fff;font-weight:800;
+  box-shadow:0 8px 25px rgba(99,102,241,.25);
+}
+
+/* HERO */
+.hero{
+  position:relative;overflow:hidden;
+  padding:88px 0 90px;
+}
+.hero:before{
+  content:"";position:absolute;width:520px;height:520px;
+  background:radial-gradient(circle,rgba(139,92,246,.18),transparent 65%);
+  top:-180px;left:-180px;pointer-events:none;
+}
+.hero-grid{
+  display:grid;grid-template-columns:1.15fr .85fr;gap:65px;align-items:center;
+}
+.badge{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:8px 13px;border:1px solid rgba(167,139,250,.28);
+  border-radius:999px;background:rgba(139,92,246,.10);
+  color:#c4b5fd;font-weight:800;font-size:.78rem;
+  letter-spacing:.05em;text-transform:uppercase;
+}
+.badge-dot{width:7px;height:7px;background:#a78bfa;border-radius:50%;box-shadow:0 0 0 5px rgba(167,139,250,.10)}
+
+h1{
+  margin:20px 0 20px;
+  font-size:clamp(3rem,6vw,5.6rem);
+  line-height:.98;
+  letter-spacing:-.065em;
+  max-width:760px;
+}
+.gradient-text{
+  background:linear-gradient(100deg,#c4b5fd 0%,#8b5cf6 40%,#38bdf8 75%,#67e8f9 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-copy{
+  max-width:680px;color:var(--muted);font-size:1.14rem;margin:0 0 28px;
+}
+.hero-copy strong{color:#fff}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:52px;padding:0 22px;border-radius:12px;
+  border:1px solid transparent;font-weight:900;cursor:pointer;
+  transition:.2s ease;
+}
+.btn-primary{
+  color:#fff;background:linear-gradient(100deg,#7c3aed,#2563eb);
+  box-shadow:0 12px 30px rgba(99,102,241,.25);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 38px rgba(99,102,241,.32)}
+.btn-ghost{
+  border-color:var(--line);background:rgba(255,255,255,.03);color:#e5e7eb;
+}
+.btn-ghost:hover{background:rgba(255,255,255,.07)}
+
+.parent-note{
+  display:flex;gap:11px;align-items:flex-start;margin-top:26px;
+  color:#aeb8ce;font-size:.9rem;max-width:610px;
+}
+.parent-note strong{color:#fff}
+
+.hero-card{
+  position:relative;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:28px;
+  background:linear-gradient(145deg,rgba(24,32,55,.96),rgba(12,17,33,.96));
+  padding:28px;
+  box-shadow:var(--shadow);
+}
+.hero-card:after{
+  content:"";position:absolute;inset:-1px;border-radius:28px;pointer-events:none;
+  background:linear-gradient(135deg,rgba(139,92,246,.35),transparent 35%,rgba(34,211,238,.20));
+  mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  mask-composite:exclude;padding:1px;
+}
+.card-kicker{color:#a78bfa;font-size:.78rem;font-weight:900;text-transform:uppercase;letter-spacing:.08em}
+.hero-price{font-size:3.15rem;font-weight:950;letter-spacing:-.06em;margin:5px 0}
+.hero-price small{font-size:1rem;color:#8f9ab2;letter-spacing:0}
+.price-sub{color:var(--muted);margin:0 0 20px}
+.fact-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fact{
+  padding:15px;border:1px solid var(--line);border-radius:15px;background:rgba(255,255,255,.035)
+}
+.fact strong{display:block;color:#fff;font-size:.94rem}
+.fact span{font-size:.78rem;color:#8f9ab2}
+.hero-card .btn{width:100%;margin-top:18px}
+
+.code-window{
+  margin-top:18px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#080c17;
+}
+.code-top{padding:8px 11px;border-bottom:1px solid var(--line);display:flex;gap:6px}
+.dot{width:7px;height:7px;border-radius:50%}
+.dot.r{background:#fb7185}.dot.y{background:#fbbf24}.dot.g{background:#34d399}
+.code{
+  padding:13px;font:11px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;color:#b8c2d8;
+}
+.c-purple{color:#c4b5fd}.c-blue{color:#67e8f9}.c-green{color:#86efac}.c-pink{color:#f9a8d4}
+
+/* STATS */
+.stats{
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  background:rgba(255,255,255,.018);
+}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:25px 20px;text-align:center;border-right:1px solid var(--line)}
+.stat:last-child{border-right:0}
+.stat strong{display:block;font-size:1.08rem;color:#fff}
+.stat span{color:#8994ad;font-size:.82rem}
+
+/* SECTIONS */
+section{padding:86px 0}
+.section-head{max-width:760px;margin-bottom:42px}
+.kicker{
+  color:#a78bfa;font-size:.78rem;font-weight:900;
+  text-transform:uppercase;letter-spacing:.1em;
+}
+h2{font-size:clamp(2.1rem,4vw,3.4rem);line-height:1.05;letter-spacing:-.05em;margin:9px 0 14px}
+.lead{color:var(--muted);font-size:1.05rem}
+
+/* PARENT VALUE */
+.parent-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:24px;align-items:stretch}
+.parent-card{
+  padding:34px;border:1px solid var(--line);border-radius:var(--radius);
+  background:linear-gradient(145deg,rgba(17,24,43,.92),rgba(12,17,32,.92));
+}
+.parent-card h3{font-size:1.35rem;margin:0 0 10px}
+.parent-card p{color:var(--muted);margin:0}
+.benefits{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.benefit{
+  border:1px solid var(--line);border-radius:18px;padding:22px;
+  background:rgba(255,255,255,.025);
+}
+.benefit-icon{font-size:1.5rem;margin-bottom:10px}
+.benefit strong{display:block;margin-bottom:5px}
+.benefit p{color:#919bb1;font-size:.9rem;margin:0}
+
+/* SESSIONS */
+.sessions{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.session{
+  background:linear-gradient(145deg,#11182b,#0d1425);
+  border:1px solid var(--line);border-radius:22px;padding:27px;
+  position:relative;overflow:hidden;
+}
+.session:before{
+  content:"";position:absolute;right:-40px;top:-40px;width:130px;height:130px;
+  border-radius:50%;background:radial-gradient(circle,rgba(139,92,246,.16),transparent 70%);
+}
+.session-head{display:flex;align-items:flex-start;gap:14px;margin-bottom:18px}
+.session-number{
+  flex:none;width:44px;height:44px;border-radius:13px;
+  display:grid;place-items:center;font-weight:950;
+  background:linear-gradient(135deg,rgba(139,92,246,.22),rgba(59,130,246,.15));
+  border:1px solid rgba(167,139,250,.22);color:#c4b5fd;
+}
+.session h3{margin:0;font-size:1.2rem}
+.duration{display:block;color:#7dd3fc;font-size:.78rem;font-weight:800;margin-top:2px}
+.session ul{list-style:none;padding:0;margin:0}
+.session li{
+  position:relative;padding:8px 0 8px 20px;color:#b7c0d2;font-size:.91rem;
+}
+.session li:before{
+  content:"";position:absolute;left:0;top:16px;width:6px;height:6px;border-radius:50%;
+  background:linear-gradient(135deg,var(--purple),var(--cyan));
+}
+.session .highlight{
+  margin-top:12px;padding:12px 14px;border-radius:12px;
+  background:rgba(52,211,153,.07);border:1px solid rgba(52,211,153,.14);
+  color:#a7f3d0;font-size:.84rem;font-weight:800;
+}
+
+/* OUTCOME */
+.outcome{
+  background:
+    radial-gradient(circle at 85% 20%,rgba(59,130,246,.12),transparent 30%),
+    linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01));
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+}
+.outcome-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:45px;align-items:center}
+.outcome-box{
+  padding:30px;border-radius:24px;
+  background:linear-gradient(135deg,rgba(139,92,246,.13),rgba(34,211,238,.06));
+  border:1px solid rgba(167,139,250,.20);
+}
+.outcome-box h3{font-size:1.55rem;margin:0 0 10px}
+.outcome-box p{color:#b0bad0;margin:0}
+.outcomes{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.outcome-item{
+  display:flex;gap:11px;align-items:flex-start;padding:15px 16px;
+  border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.025);
+}
+.check{color:#6ee7b7;font-weight:950}
+.outcome-item span:last-child{color:#c5ccda;font-size:.9rem}
+
+/* REGISTER */
+.register{
+  background:
+    radial-gradient(circle at 10% 30%,rgba(139,92,246,.13),transparent 28%),
+    radial-gradient(circle at 90% 70%,rgba(34,211,238,.08),transparent 25%);
+}
+.register-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:25px;align-items:start}
+.register-info{
+  padding:31px;border:1px solid var(--line);border-radius:var(--radius);
+  background:linear-gradient(145deg,#11182b,#0c1324);
+  position:sticky;top:95px;
+}
+.register-info h2{font-size:2.2rem}
+.register-info p{color:var(--muted)}
+.register-list{list-style:none;padding:0;margin:24px 0 0}
+.register-list li{padding:11px 0;border-top:1px solid var(--line);color:#c8cfde}
+.register-list li:first-child{border-top:0}
+.register-list b{color:#fff}
+
+form{
+  background:#fff;color:#101827;border-radius:24px;padding:32px;
+  box-shadow:var(--shadow);
+}
+.form-title{margin:0 0 5px;font-size:1.65rem}
+.form-subtitle{color:#667085;margin:0 0 24px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:flex;flex-direction:column;gap:7px}
+.field.full{grid-column:1/-1}
+label{font-size:.82rem;font-weight:850;color:#344054}
+input,select,textarea{
+  width:100%;padding:12px 13px;border:1px solid #d0d5dd;
+  border-radius:10px;background:#fff;color:#101828;outline:none;
+}
+input:focus,select:focus,textarea:focus{
+  border-color:#8b5cf6;box-shadow:0 0 0 4px rgba(139,92,246,.10)
+}
+textarea{min-height:90px;resize:vertical}
+.form-note{
+  margin:20px 0;padding:16px;border-radius:13px;
+  background:#f5f3ff;border:1px solid #e9d5ff;color:#5b21b6;
+}
+.form-note strong{display:block;font-size:1.08rem}
+.form-note span{font-size:.82rem;color:#6b4bb7}
+.consent{display:flex;gap:9px;align-items:flex-start;color:#667085;font-size:.8rem;margin:15px 0 20px}
+.consent input{width:auto;margin-top:3px}
+.submit{width:100%}
+.success{
+  display:none;margin-top:15px;padding:13px 15px;border-radius:11px;
+  background:#ecfdf3;color:#067647;border:1px solid #abefc6;font-size:.88rem;font-weight:750;
+}
+.success.error{background:#fef2f2;color:#b42318;border-color:#fecdca}
+
+/* FAQ / FOOTER */
+.faq{max-width:850px}
+details{
+  background:rgba(255,255,255,.025);border:1px solid var(--line);
+  border-radius:14px;margin-bottom:11px;padding:17px 19px;
+}
+summary{cursor:pointer;font-weight:850}
+details p{color:#9da7bc;margin:10px 0 0;font-size:.92rem}
+
+footer{border-top:1px solid var(--line);padding:38px 0;color:#8994aa}
+.footer{display:flex;justify-content:space-between;gap:20px;align-items:center}
+.footer strong{color:#fff}
+.footer small{font-size:.8rem}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero-grid,.parent-grid,.outcome-grid,.register-grid{grid-template-columns:1fr}
+  .register-info{position:static}
+  .sessions{grid-template-columns:1fr}
+  .hero{padding-top:62px}
+}
+@media(max-width:680px){
+  .container{width:calc(100% - 28px)}
+  .nav-links{display:none}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .stat:nth-child(2){border-right:0}
+  .stat:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .benefits,.outcomes,.form-grid{grid-template-columns:1fr}
+  .field.full{grid-column:auto}
+  section{padding:62px 0}
+  h1{font-size:clamp(2.7rem,14vw,4rem)}
+  .fact-grid{grid-template-columns:1fr}
+  form{padding:23px}
+  .footer{align-items:flex-start;flex-direction:column}
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="container nav">
+    <a class="logo" href="#top"><span>SkillCompass</span></a>
+    <nav class="nav-links">
+      <a href="#why">Why this workshop?</a>
+      <a href="#sessions">What we'll build</a>
+      <a href="#outcome">Takeaways</a>
+    </nav>
+    <a class="nav-button" href="#register">Register — ₹1,499</a>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="badge"><span class="badge-dot"></span> For curious creators aged 10–15</div>
+
+      <h1>Build your <span class="gradient-text">first product with AI.</span></h1>
+
+      <p class="hero-copy">
+        A hands-on <strong>AI + Web Development Workshop</strong> where kids learn how AI works,
+        create their own portfolio website, add interactive features, and publish a real website
+        on the internet — with guidance every step of the way.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#register">Register Your Child →</a>
+        <a class="btn btn-ghost" href="#sessions">See the 4 Sessions</a>
+      </div>
+
+      <div class="parent-note">
+        <span>👨‍👩‍👧</span>
+        <span><strong>For parents:</strong> Your child doesn't just watch a course. They finish the weekend
+        with something they actually built, understand and can proudly show you.</span>
+      </div>
+    </div>
+
+    <aside class="hero-card">
+      <div class="card-kicker">October Workshop</div>
+      <div class="hero-price">₹1,499 <small>/ child</small></div>
+      <p class="price-sub">Complete 8-hour online workshop · 2 days · 4 sessions</p>
+
+      <div class="fact-grid">
+        <div class="fact"><strong>📅 Oct 17 &amp; 18</strong><span>Saturday &amp; Sunday</span></div>
+        <div class="fact"><strong>💻 Online</strong><span>Live Sessions Led by Industry Experts ⭐</span></div>
+        <div class="fact"><strong>⏱️ 8 Hours</strong><span>4 × 2-hour sessions</span></div>
+        <div class="fact"><strong>👦 10–15 yrs</strong><span>Designed for kids</span></div>
+      </div>
+
+      <div class="code-window">
+        <div class="code-top"><i class="dot r"></i><i class="dot y"></i><i class="dot g"></i></div>
+        <div class="code">
+          <span class="c-purple">const</span> <span class="c-blue">myFirstProduct</span> = {<br>
+          &nbsp;&nbsp;idea: <span class="c-green">"My Portfolio"</span>,<br>
+          &nbsp;&nbsp;builtWith: <span class="c-green">"AI + HTML + CSS + JS"</span>,<br>
+          &nbsp;&nbsp;status: <span class="c-pink">"LIVE 🚀"</span><br>
+          };
+        </div>
+      </div>
+
+      <a class="btn btn-primary" href="#register">Reserve a Spot</a>
+    </aside>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="container stats-grid">
+    <div class="stat"><strong>8 Hours</strong><span>Total workshop duration</span></div>
+    <div class="stat"><strong>4 Sessions</strong><span>2 hours each</span></div>
+    <div class="stat"><strong>100% Online</strong><span>Learn from home</span></div>
+    <div class="stat"><strong>₹1,499</strong><span>Per child</span></div>
+  </div>
+</div>
+
+<section id="why">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">Why parents choose hands-on learning</div>
+      <h2>Turn screen time into <span class="gradient-text">build time.</span></h2>
+      <p class="lead">
+        AI is changing how products are created. We want kids to learn to use it as a
+        creative tool — safely, thoughtfully and with real understanding — rather than simply
+        consuming AI-generated content.
+      </p>
+    </div>
+
+    <div class="parent-grid">
+      <div class="parent-card">
+        <h3>What makes this different?</h3>
+        <p>
+          This isn't a lecture-heavy coding class. Children learn by building a project they
+          can see, change, break, fix and finally publish. They use AI as a collaborator while
+          learning the fundamentals underneath it.
+        </p>
+        <ul class="register-list">
+          <li>✓ <b>Build something real</b> — a personal portfolio website</li>
+          <li>✓ <b>Learn AI responsibly</b> — safety, privacy and limitations</li>
+          <li>✓ <b>Understand the code</b> — not just copy and paste</li>
+          <li>✓ <b>Publish it online</b> — leave with a live website</li>
+        </ul>
+      </div>
+
+      <div class="benefits">
+        <div class="benefit">
+          <div class="benefit-icon">🤖</div>
+          <strong>AI as a creative partner</strong>
+          <p>Learn how to prompt AI, ask it to explain code and use it to debug.</p>
+        </div>
+        <div class="benefit">
+          <div class="benefit-icon">🧠</div>
+          <strong>Problem-solving skills</strong>
+          <p>Understand how to break an idea into smaller, solvable pieces.</p>
+        </div>
+        <div class="benefit">
+          <div class="benefit-icon">🎨</div>
+          <strong>Creativity & ownership</strong>
+          <p>Personalise the site around their interests, ideas, projects and personality.</p>
+        </div>
+        <div class="benefit">
+          <div class="benefit-icon">🚀</div>
+          <strong>A finished product</strong>
+          <p>Publish a live portfolio website and create a GitHub repository.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sessions">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">8-hour workshop plan</div>
+      <h2>From <span class="gradient-text">idea → website → live product.</span></h2>
+      <p class="lead">
+        Four practical 2-hour sessions across Saturday and Sunday. Every session builds on the previous one.
+      </p>
+    </div>
+
+    <div class="sessions">
+
+      <article class="session">
+        <div class="session-head">
+          <div class="session-number">01</div>
+          <div>
+            <h3>AI & Web Basics</h3>
+            <span class="duration">2 hours · Saturday</span>
+          </div>
+        </div>
+        <ul>
+          <li>What is AI and Generative AI?</li>
+          <li>Where do we use AI in everyday life?</li>
+          <li>What can AI do well — and where can it make mistakes?</li>
+          <li>AI safety, privacy and responsible use</li>
+          <li>How websites work: HTML, CSS and JavaScript</li>
+          <li>Introduction to VS Code</li>
+          <li>Introduction to GitHub Copilot</li>
+          <li>Build a simple first webpage using Copilot</li>
+        </ul>
+        <div class="highlight">🎯 First win: your child builds their first webpage with AI.</div>
+      </article>
+
+      <article class="session">
+        <div class="session-head">
+          <div class="session-number">02</div>
+          <div>
+            <h3>Build Your Portfolio</h3>
+            <span class="duration">2 hours · Saturday</span>
+          </div>
+        </div>
+        <ul>
+          <li>Understand basic HTML structure</li>
+          <li>Create the portfolio homepage</li>
+          <li>Add About Me, My Skills, My Projects and Contact sections</li>
+          <li>Use GitHub Copilot to generate and explain code</li>
+          <li>Introduction to CSS</li>
+          <li>Add colours, fonts, spacing, cards and layouts</li>
+          <li>Personalise the website with interests and creativity</li>
+        </ul>
+        <div class="highlight">🎯 Build milestone: a personalised portfolio starts taking shape.</div>
+      </article>
+
+      <article class="session">
+        <div class="session-head">
+          <div class="session-number">03</div>
+          <div>
+            <h3>Make Your Website Interactive</h3>
+            <span class="duration">2 hours · Sunday</span>
+          </div>
+        </div>
+        <ul>
+          <li>Introduction to JavaScript through examples</li>
+          <li>Add 1–2 interactive features: dark mode, buttons, fun-fact generator or project filtering</li>
+          <li>Add simple animations</li>
+          <li>Use Copilot to modify and improve the website</li>
+          <li>Learn how to ask AI to explain code</li>
+          <li>Learn how to use AI for debugging</li>
+          <li>Test and improve the website</li>
+        </ul>
+        <div class="highlight">🎯 Build milestone: your website responds, moves and feels like a real product.</div>
+      </article>
+
+      <article class="session">
+        <div class="session-head">
+          <div class="session-number">04</div>
+          <div>
+            <h3>Publish & Showcase</h3>
+            <span class="duration">2 hours · Sunday</span>
+          </div>
+        </div>
+        <ul>
+          <li>Introduction to Git and GitHub</li>
+          <li>Create a GitHub repository</li>
+          <li>Upload/push the website from VS Code</li>
+          <li>Publish using GitHub Pages</li>
+          <li>Test the live website on desktop and mobile</li>
+          <li>Check links, images, spelling and privacy</li>
+          <li>Make final improvements with Copilot</li>
+          <li><strong>Demo Day:</strong> each student presents their portfolio</li>
+        </ul>
+        <div class="highlight">🚀 Final milestone: leave with a live portfolio + GitHub repository.</div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="outcome" class="outcome">
+  <div class="container outcome-grid">
+    <div class="outcome-box">
+      <div class="kicker">The final outcome</div>
+      <h3>Learn AI. Build with it. Bring your ideas to life.</h3>
+      <p>
+        They leave with a real project, a live URL, a GitHub repository and a foundation
+        for continuing to experiment with AI and technology.
+      </p>
+    </div>
+
+    <div class="outcomes">
+      <div class="outcome-item"><span class="check">✓</span><span>Basic understanding of AI and Generative AI</span></div>
+      <div class="outcome-item"><span class="check">✓</span><span>Basic HTML, CSS and JavaScript knowledge</span></div>
+      <div class="outcome-item"><span class="check">✓</span><span>AI-assisted coding skills using GitHub Copilot</span></div>
+      <div class="outcome-item"><span class="check">✓</span><span>Basic debugging and problem-solving skills</span></div>
+      <div class="outcome-item"><span class="check">✓</span><span>Basic GitHub knowledge</span></div>
+      <div class="outcome-item"><span class="check">✓</span><span>A live portfolio website they can share</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="register" id="register">
+  <div class="container register-grid">
+    <div class="register-info">
+      <div class="kicker">October 17–18, 2026</div>
+      <h2>Give your child a head start in the AI era.</h2>
+      <p>
+        A small, guided cohort is ideal for asking questions, experimenting and getting
+        individual help while building.
+      </p>
+
+      <ul class="register-list">
+        <li>📅 <b>Saturday & Sunday</b></li>
+        <li>💻 <b>100% Online</b></li>
+        <li>⏱️ <b>8 hours</b> · 4 × 2-hour sessions</li>
+        <li>👦 <b>Age:</b> 10–15 years</li>
+        <li>💳 <b>₹1,499</b> per child</li>
+        <li>🚀 <b>Outcome:</b> live website + GitHub repository</li>
+      </ul>
+    </div>
+
+    <form id="registrationForm" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="af2a403d-3803-41a6-aff7-8a966ec81cb9">
+      <input type="hidden" name="subject" value="New AI Workshop Registration">
+      <input type="hidden" name="from_name" value="SkillCompass AI Workshop">
+      <input type="hidden" name="workshop" value="AI + Web Development Workshop — October 17–18, 2026">
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+      <h3 class="form-title">Register for the AI + Web Development Workshop</h3>
+      <p class="form-subtitle">Parents / guardians can register on behalf of the child.</p>
+
+      <div class="form-grid">
+        <div class="field">
+          <label for="childName">Child's full name *</label>
+          <input id="childName" name="child_name" type="text" required placeholder="Child's name">
+        </div>
+
+        <div class="field">
+          <label for="age">Child's age *</label>
+          <select id="age" name="age" required>
+            <option value="">Select age</option>
+            <option>10</option><option>11</option><option>12</option>
+            <option>13</option><option>14</option><option>15</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="parentName">Parent / guardian name *</label>
+          <input id="parentName" name="parent_name" type="text" required placeholder="Parent or guardian">
+        </div>
+
+        <div class="field">
+          <label for="parentEmail">Parent / guardian email *</label>
+          <input id="parentEmail" name="parent_email" type="email" required placeholder="parent@example.com">
+        </div>
+
+        <div class="field">
+          <label for="phone">Parent / guardian mobile *</label>
+          <input id="phone" name="phone" type="tel" required placeholder="+91 98765 43210">
+        </div>
+
+        <div class="field">
+          <label for="country">Country *</label>
+          <input id="country" name="country" type="text" required placeholder="India">
+        </div>
+
+        <div class="field">
+          <label for="city">City *</label>
+          <input id="city" name="city" type="text" required placeholder="Bengaluru">
+        </div>
+
+        <div class="field">
+          <label for="experience">Prior coding experience</label>
+          <select id="experience" name="experience">
+            <option value="">Select</option>
+            <option>No prior experience</option>
+            <option>Some Scratch / block coding</option>
+            <option>Some HTML / CSS</option>
+            <option>Some Python / JavaScript</option>
+            <option>Already builds projects</option>
+          </select>
+        </div>
+
+        <div class="field full">
+          <label for="message">Anything you'd like us to know?</label>
+          <textarea id="message" name="message" placeholder="Optional — interests, questions, accessibility needs, etc."></textarea>
+        </div>
+      </div>
+
+      <div class="form-note">
+        <strong>₹1,499 per child · 8-hour workshop</strong>
+        <span>After submitting these details, you will be redirected to Razorpay. Enter ₹1,499 on the secure payment page to complete registration.</span>
+      </div>
+
+      <label class="consent">
+        <input type="checkbox" id="consent" required>
+        <span>I am the parent/guardian of the child named above and confirm that the registration information is accurate.</span>
+      </label>
+
+      <button class="btn btn-primary submit" type="submit">Continue to Secure Payment →</button>
+      <div class="success" id="successMessage">
+        Details received. Redirecting you to Razorpay…
+      </div>
+    </form>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">Questions parents may have</div>
+      <h2>Frequently asked questions.</h2>
+    </div>
+
+    <div class="faq">
+      <details>
+        <summary>Does my child need previous coding experience?</summary>
+        <p>No. The workshop starts with AI and web basics and is designed for curious learners aged 10–15. Prior experience is helpful but not required.</p>
+      </details>
+      <details>
+        <summary>What will my child actually build?</summary>
+        <p>Each child builds a personal portfolio website with HTML, CSS and JavaScript, adds interactive features, and publishes the website using GitHub Pages.</p>
+      </details>
+      <details>
+        <summary>Is this an AI-only workshop?</summary>
+        <p>No. AI is used as a creative coding assistant, while children also learn the fundamentals of HTML, CSS, JavaScript, Git and GitHub.</p>
+      </details>
+      <details>
+        <summary>Is the workshop online?</summary>
+        <p>Yes. All four sessions are conducted live online across Saturday and Sunday.</p>
+      </details>
+      <details>
+        <summary>What is included in the ₹1,499 fee?</summary>
+        <p>The fee covers the complete 8-hour, 2-day workshop with four live sessions.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container footer">
+    <div><strong>SkillCompass</strong><br><small>Helping the next generation build with technology.</small></div>
+    <small>© 2026 SkillCompass. All rights reserved.</small>
+  </div>
+</footer>
+
+<script>
+document.getElementById("registrationForm").addEventListener("submit", async function(e){
+  e.preventDefault();
+  if(!this.checkValidity()){
+    this.reportValidity();
+    return;
+  }
+
+  const button = this.querySelector('button[type="submit"]');
+  const message = document.getElementById("successMessage");
+  button.disabled = true;
+  button.textContent = "Saving registration…";
+  message.style.display = "none";
+  message.classList.remove("error");
+
+  try {
+    const response = await fetch(this.action, {
+      method: "POST",
+      body: new FormData(this),
+      headers: {"Accept": "application/json"}
+    });
+    const result = await response.json();
+    if(!response.ok || !result.success){
+      throw new Error(result.message || "Registration could not be saved");
+    }
+
+    message.textContent = "Details received. Redirecting you to Razorpay…";
+    message.style.display = "block";
+    window.location.assign("https://razorpay.me/@skillcompass1");
+  } catch(error) {
+    message.textContent = "We could not save your registration. Please check your connection and try again.";
+    message.classList.add("error");
+    message.style.display = "block";
+    button.disabled = false;
+    button.textContent = "Continue to Secure Payment →";
+  }
+});
+</script>
+
+</body>
+</html>

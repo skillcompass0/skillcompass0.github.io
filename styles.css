@@ -153,6 +153,14 @@ body {
     color: var(--text-primary);
 }
 
+.nav-links .nav-featured {
+    color: #67e8f9;
+}
+
+.nav-links .nav-featured:hover {
+    color: #a7f3d0;
+}
+
 .nav-cta {
     background: var(--gradient-primary);
     padding: 10px 24px !important;
@@ -401,6 +409,169 @@ body {
 @keyframes float-card {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-15px); }
+}
+
+/* ===== Featured Kids Workshop ===== */
+.kids-workshop-section {
+    position: relative;
+    padding-top: 80px;
+    background: linear-gradient(180deg, rgba(34, 211, 238, 0.03), rgba(99, 102, 241, 0.06), transparent);
+}
+
+.kids-workshop-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.75fr);
+    align-items: center;
+    gap: 64px;
+    padding: 56px;
+    background: linear-gradient(145deg, rgba(26, 26, 46, 0.96), rgba(15, 15, 26, 0.98));
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    border-radius: 28px;
+    box-shadow: var(--shadow-lg), 0 0 80px rgba(34, 211, 238, 0.08);
+    overflow: hidden;
+}
+
+.kids-workshop-eyebrow {
+    color: #67e8f9;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.kids-workshop-content h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2.25rem, 4vw, 3.5rem);
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.kids-workshop-copy {
+    max-width: 650px;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.75;
+    margin-bottom: 30px;
+}
+
+.workshop-details {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-bottom: 32px;
+}
+
+.workshop-detail {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 78px;
+    padding: 14px;
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+}
+
+.workshop-detail-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 40px;
+    width: 40px;
+    height: 40px;
+    color: #67e8f9;
+    background: rgba(34, 211, 238, 0.1);
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.workshop-detail strong,
+.workshop-detail span {
+    display: block;
+}
+
+.workshop-detail strong {
+    color: var(--text-primary);
+    font-size: 0.92rem;
+    margin-bottom: 2px;
+}
+
+.workshop-detail div > span {
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    line-height: 1.4;
+}
+
+.kids-workshop-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.workshop-seats {
+    color: #fbbf24;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.workshop-seats::before {
+    content: '✦';
+    margin-right: 8px;
+}
+
+.kids-workshop-brochure {
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 430px;
+    justify-self: end;
+    border: 1px solid rgba(34, 211, 238, 0.35);
+    border-radius: 18px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.kids-workshop-brochure:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 30px 70px rgba(34, 211, 238, 0.14);
+}
+
+.kids-workshop-brochure img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.brochure-cta {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    left: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 16px;
+    color: var(--text-primary);
+    background: rgba(15, 15, 26, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    backdrop-filter: blur(12px);
+    font-size: 0.9rem;
+    font-weight: 700;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.kids-workshop-brochure:hover .brochure-cta,
+.kids-workshop-brochure:focus-visible .brochure-cta {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* ===== Section Styles ===== */
@@ -1587,6 +1758,26 @@ section {
 
 /* ===== Responsive Design ===== */
 @media (max-width: 1024px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--bg-dark);
+        flex-direction: column;
+        padding: 24px;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .mobile-menu-btn {
+        display: flex;
+    }
+
     .hero {
         flex-direction: column;
         text-align: center;
@@ -1607,6 +1798,17 @@ section {
 
     .hero-visual {
         max-width: 350px;
+    }
+
+    .kids-workshop-card {
+        grid-template-columns: 1fr;
+        gap: 44px;
+        padding: 48px;
+    }
+
+    .kids-workshop-brochure {
+        max-width: 520px;
+        justify-self: center;
     }
 
     .floating-card {
@@ -1647,28 +1849,25 @@ section {
 }
 
 @media (max-width: 768px) {
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: var(--bg-dark);
-        flex-direction: column;
-        padding: 24px;
-        border-bottom: 1px solid var(--border-color);
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .mobile-menu-btn {
-        display: flex;
-    }
-
     .hero-title {
         font-size: 2.25rem;
+    }
+
+    .kids-workshop-card {
+        padding: 32px;
+        border-radius: 22px;
+    }
+
+    .workshop-details {
+        grid-template-columns: 1fr;
+    }
+
+    .brochure-cta {
+        position: static;
+        border-width: 1px 0 0;
+        border-radius: 0;
+        opacity: 1;
+        transform: none;
     }
 
     .hero-stats {
@@ -1742,6 +1941,29 @@ section {
 
     section {
         padding: 60px 0;
+    }
+
+    .kids-workshop-section {
+        padding-top: 40px;
+    }
+
+    .kids-workshop-card {
+        gap: 32px;
+        padding: 24px 18px;
+        border-radius: 18px;
+    }
+
+    .kids-workshop-content h2 {
+        font-size: 2rem;
+    }
+
+    .kids-workshop-copy {
+        font-size: 1rem;
+    }
+
+    .kids-workshop-actions .btn {
+        width: 100%;
+        justify-content: center;
     }
 
     .session-info-grid {
